@@ -1,0 +1,158 @@
+identity:
+  name: send_message
+  author: shamspias
+  label:
+    en_US: Send Message
+    ru_RU: Отправить сообщение
+    bn_BD: বার্তা পাঠান
+    zh_Hans: 发送消息
+    ja_JP: メッセージを送信
+description:
+  human:
+    en_US: Send a text message to a Telegram chat
+    ru_RU: Отправить текстовое сообщение в чат Telegram
+    bn_BD: টেলিগ্রাম চ্যাটে একটি টেক্সট বার্তা পাঠান
+    zh_Hans: 向 Telegram 聊天发送文本消息
+    ja_JP: Telegram チャットにテキストメッセージを送信
+  llm: Send a text message to a specified Telegram chat with optional formatting, reply markup, and other options
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    human_description:
+      en_US: Unique identifier for the target chat or username (@username)
+      ru_RU: Уникальный идентификатор целевого чата или имя пользователя (@username)
+      bn_BD: লক্ষ্য চ্যাটের জন্য অনন্য শনাক্তকারী বা ব্যবহারকারীর নাম (@username)
+      zh_Hans: 目标聊天的唯一标识符或用户名 (@username)
+      ja_JP: 対象チャットの一意の識別子またはユーザー名 (@username)
+    llm_description: Target chat ID (number) or username (with @)
+    form: llm
+
+  - name: text
+    type: string
+    required: true
+    label:
+      en_US: Message Text
+      ru_RU: Текст сообщения
+      bn_BD: বার্তা টেক্সট
+      zh_Hans: 消息文本
+      ja_JP: メッセージテキスト
+    human_description:
+      en_US: Text of the message to be sent (1-4096 characters)
+      ru_RU: Текст отправляемого сообщения (1-4096 символов)
+      bn_BD: পাঠানো বার্তার টেক্সট (১-৪০৯৬ অক্ষর)
+      zh_Hans: 要发送的消息文本（1-4096 个字符）
+      ja_JP: 送信するメッセージのテキスト（1-4096 文字）
+    llm_description: Message content to send
+    form: llm
+
+  - name: parse_mode
+    type: select
+    required: false
+    default: ""
+    options:
+      - value: ""
+        label:
+          en_US: None
+          ru_RU: Нет
+          bn_BD: কিছু না
+          zh_Hans: 无
+          ja_JP: なし
+      - value: "Markdown"
+        label:
+          en_US: Markdown
+          ru_RU: Markdown
+          bn_BD: Markdown
+          zh_Hans: Markdown
+          ja_JP: Markdown
+      - value: "MarkdownV2"
+        label:
+          en_US: MarkdownV2
+          ru_RU: MarkdownV2
+          bn_BD: MarkdownV2
+          zh_Hans: MarkdownV2
+          ja_JP: MarkdownV2
+      - value: "HTML"
+        label:
+          en_US: HTML
+          ru_RU: HTML
+          bn_BD: HTML
+          zh_Hans: HTML
+          ja_JP: HTML
+    label:
+      en_US: Parse Mode
+      ru_RU: Режим разбора
+      bn_BD: পার্স মোড
+      zh_Hans: 解析模式
+      ja_JP: パースモード
+    human_description:
+      en_US: Format for text parsing (Markdown, HTML, or none)
+      ru_RU: Формат разбора текста (Markdown, HTML или нет)
+      bn_BD: টেক্সট পার্সিংয়ের জন্য ফর্ম্যাট (Markdown, HTML, অথবা কিছু না)
+      zh_Hans: 文本解析格式（Markdown、HTML 或无）
+      ja_JP: テキスト解析のフォーマット（Markdown、HTML、またはなし）
+    form: form
+
+  - name: disable_web_page_preview
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Disable Web Preview
+      ru_RU: Отключить веб-превью
+      bn_BD: ওয়েব প্রিভিউ অক্ষম করুন
+      zh_Hans: 禁用网页预览
+      ja_JP: ウェブプレビューを無効化
+    human_description:
+      en_US: Disables link previews for links in the message
+      ru_RU: Отключает предпросмотр ссылок в сообщении
+      bn_BD: বার্তায় লিঙ্কের প্রিভিউ অক্ষম করে
+      zh_Hans: 禁用消息中链接的预览
+      ja_JP: メッセージ内のリンクのプレビューを無効化
+    form: form
+
+  - name: disable_notification
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Silent Mode
+      ru_RU: Тихий режим
+      bn_BD: নীরব মোড
+      zh_Hans: 静音模式
+      ja_JP: サイレントモード
+    human_description:
+      en_US: Send message silently (users will receive notification without sound)
+      ru_RU: Отправить сообщение тихо (пользователи получат уведомление без звука)
+      bn_BD: নীরবে বার্তা পাঠান (ব্যবহারকারীরা শব্দ ছাড়া বিজ্ঞপ্তি পাবেন)
+      zh_Hans: 静默发送消息（用户将收到无声通知）
+      ja_JP: サイレント送信（ユーザーは音なしで通知を受け取る）
+    form: form
+
+  - name: reply_to_message_id
+    type: number
+    required: false
+    label:
+      en_US: Reply to Message ID
+      ru_RU: ID сообщения для ответа
+      bn_BD: উত্তর দেওয়ার বার্তা আইডি
+      zh_Hans: 回复消息 ID
+      ja_JP: 返信するメッセージ ID
+    human_description:
+      en_US: Message ID to reply to
+      ru_RU: ID сообщения, на которое нужно ответить
+      bn_BD: যে বার্তায় উত্তর দিতে হবে তার আইডি
+      zh_Hans: 要回复的消息 ID
+      ja_JP: 返信先メッセージ ID
+    form: form
+
+extra:
+  python:
+    source: tools/send_message.py
