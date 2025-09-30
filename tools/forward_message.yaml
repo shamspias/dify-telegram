@@ -1,0 +1,112 @@
+identity:
+  name: forward_message
+  author: shamspias
+  label:
+    en_US: Forward Message
+    ru_RU: Переслать сообщение
+    bn_BD: বার্তা ফরওয়ার্ড করুন
+    zh_Hans: 转发消息
+    ja_JP: メッセージを転送
+description:
+  human:
+    en_US: Forward a message from one chat to another
+    ru_RU: Переслать сообщение из одного чата в другой
+    bn_BD: একটি চ্যাট থেকে অন্য চ্যাটে বার্তা ফরওয়ার্ড করুন
+    zh_Hans: 将消息从一个聊天转发到另一个聊天
+    ja_JP: あるチャットから別のチャットにメッセージを転送
+  llm: Forward messages between chats while preserving original sender information
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: To Chat ID
+      ru_RU: ID целевого чата
+      bn_BD: লক্ষ্য চ্যাট আইডি
+      zh_Hans: 目标聊天 ID
+      ja_JP: 宛先チャット ID
+    human_description:
+      en_US: Chat ID where to forward the message
+      ru_RU: ID чата, куда переслать сообщение
+      bn_BD: যে চ্যাটে বার্তা ফরওয়ার্ড করতে হবে তার আইডি
+      zh_Hans: 转发消息的目标聊天 ID
+      ja_JP: メッセージを転送する先のチャット ID
+    llm_description: Destination chat ID or username
+    form: llm
+
+  - name: from_chat_id
+    type: string
+    required: true
+    label:
+      en_US: From Chat ID
+      ru_RU: ID исходного чата
+      bn_BD: উৎস চ্যাট আইডি
+      zh_Hans: 源聊天 ID
+      ja_JP: 元のチャット ID
+    human_description:
+      en_US: Chat ID where the original message is located
+      ru_RU: ID чата, где находится исходное сообщение
+      bn_BD: যে চ্যাটে মূল বার্তা রয়েছে তার আইডি
+      zh_Hans: 原始消息所在的聊天 ID
+      ja_JP: 元のメッセージがあるチャット ID
+    llm_description: Source chat ID
+    form: llm
+
+  - name: message_id
+    type: number
+    required: true
+    label:
+      en_US: Message ID
+      ru_RU: ID сообщения
+      bn_BD: বার্তা আইডি
+      zh_Hans: 消息 ID
+      ja_JP: メッセージ ID
+    human_description:
+      en_US: ID of the message to forward
+      ru_RU: ID сообщения для пересылки
+      bn_BD: ফরওয়ার্ড করার বার্তার আইডি
+      zh_Hans: 要转发的消息 ID
+      ja_JP: 転送するメッセージの ID
+    llm_description: Message ID to forward
+    form: llm
+
+  - name: disable_notification
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Silent Mode
+      ru_RU: Тихий режим
+      bn_BD: নীরব মোড
+      zh_Hans: 静音模式
+      ja_JP: サイレントモード
+    human_description:
+      en_US: Send the message silently
+      ru_RU: Отправить сообщение тихо
+      bn_BD: নীরবে বার্তা পাঠান
+      zh_Hans: 静默发送消息
+      ja_JP: サイレント送信
+    form: form
+
+  - name: protect_content
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Protect Content
+      ru_RU: Защитить контент
+      bn_BD: কন্টেন্ট সুরক্ষিত করুন
+      zh_Hans: 保护内容
+      ja_JP: コンテンツを保護
+    human_description:
+      en_US: Protects message from forwarding and saving
+      ru_RU: Защищает сообщение от пересылки и сохранения
+      bn_BD: বার্তাকে ফরওয়ার্ড এবং সংরক্ষণ থেকে সুরক্ষিত করে
+      zh_Hans: 保护消息免于转发和保存
+      ja_JP: メッセージの転送と保存を防ぐ
+    form: form
+
+extra:
+  python:
+    source: tools/forward_message.py
