@@ -1,0 +1,93 @@
+identity:
+  name: ban_chat_member
+  author: shamspias
+  label:
+    en_US: Ban Chat Member
+    ru_RU: Заблокировать участника
+    bn_BD: চ্যাট সদস্য নিষিদ্ধ করুন
+    zh_Hans: 封禁聊天成员
+    ja_JP: チャットメンバーを禁止
+description:
+  human:
+    en_US: Ban a user from a group or channel
+    ru_RU: Заблокировать пользователя в группе или канале
+    bn_BD: একটি গ্রুপ বা চ্যানেল থেকে ব্যবহারকারীকে নিষিদ্ধ করুন
+    zh_Hans: 从群组或频道中封禁用户
+    ja_JP: グループまたはチャンネルからユーザーを禁止
+  llm: Ban or kick a user from a Telegram group or channel with optional duration and message deletion
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    human_description:
+      en_US: Unique identifier for the target chat
+      ru_RU: Уникальный идентификатор целевого чата
+      bn_BD: লক্ষ্য চ্যাটের অনন্য শনাক্তকারী
+      zh_Hans: 目标聊天的唯一标识符
+      ja_JP: 対象チャットの一意の識別子
+    llm_description: Chat ID where to ban the user
+    form: llm
+
+  - name: user_id
+    type: number
+    required: true
+    label:
+      en_US: User ID
+      ru_RU: ID пользователя
+      bn_BD: ব্যবহারকারী আইডি
+      zh_Hans: 用户 ID
+      ja_JP: ユーザー ID
+    human_description:
+      en_US: Unique identifier of the target user
+      ru_RU: Уникальный идентификатор целевого пользователя
+      bn_BD: লক্ষ্য ব্যবহারকারীর অনন্য শনাক্তকারী
+      zh_Hans: 目标用户的唯一标识符
+      ja_JP: 対象ユーザーの一意の識別子
+    llm_description: User ID to ban
+    form: llm
+
+  - name: until_date
+    type: number
+    required: false
+    label:
+      en_US: Until Date (Unix timestamp)
+      ru_RU: До даты (Unix timestamp)
+      bn_BD: তারিখ পর্যন্ত (Unix timestamp)
+      zh_Hans: 直到日期（Unix 时间戳）
+      ja_JP: 日付まで（Unix タイムスタンプ）
+    human_description:
+      en_US: Date when user will be unbanned (Unix time). Leave empty for permanent ban
+      ru_RU: Дата разблокировки пользователя (Unix time). Оставьте пустым для постоянной блокировки
+      bn_BD: ব্যবহারকারীকে আনব্যান করা হবে এমন তারিখ (Unix time)। স্থায়ী নিষেধের জন্য খালি রাখুন
+      zh_Hans: 用户将被解封的日期（Unix 时间）。留空表示永久封禁
+      ja_JP: ユーザーの禁止が解除される日付（Unix 時刻）。永久禁止の場合は空白のまま
+    form: form
+
+  - name: revoke_messages
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Delete All Messages
+      ru_RU: Удалить все сообщения
+      bn_BD: সব বার্তা মুছুন
+      zh_Hans: 删除所有消息
+      ja_JP: すべてのメッセージを削除
+    human_description:
+      en_US: Delete all messages from the banned user in the chat
+      ru_RU: Удалить все сообщения заблокированного пользователя в чате
+      bn_BD: চ্যাটে নিষিদ্ধ ব্যবহারকারীর সব বার্তা মুছুন
+      zh_Hans: 删除聊天中被封禁用户的所有消息
+      ja_JP: チャット内の禁止されたユーザーのすべてのメッセージを削除
+    form: form
+
+extra:
+  python:
+    source: tools/ban_chat_member.py
