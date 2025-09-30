@@ -1,0 +1,138 @@
+identity:
+  name: send_document
+  author: shamspias
+  label:
+    en_US: Send Document
+    ru_RU: Отправить документ
+    bn_BD: ডকুমেন্ট পাঠান
+    zh_Hans: 发送文档
+    ja_JP: ドキュメントを送信
+description:
+  human:
+    en_US: Send a document file to a Telegram chat
+    ru_RU: Отправить файл документа в чат Telegram
+    bn_BD: টেলিগ্রাম চ্যাটে একটি ডকুমেন্ট ফাইল পাঠান
+    zh_Hans: 向 Telegram 聊天发送文档文件
+    ja_JP: Telegram チャットにドキュメントファイルを送信
+  llm: Send any file type as a document to a Telegram chat with optional caption
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    human_description:
+      en_US: Unique identifier for the target chat or username
+      ru_RU: Уникальный идентификатор целевого чата или имя пользователя
+      bn_BD: লক্ষ্য চ্যাটের অনন্য শনাক্তকারী বা ব্যবহারকারীর নাম
+      zh_Hans: 目标聊天的唯一标识符或用户名
+      ja_JP: 対象チャットの一意の識別子またはユーザー名
+    llm_description: Target chat ID or username
+    form: llm
+
+  - name: document
+    type: string
+    required: true
+    label:
+      en_US: Document
+      ru_RU: Документ
+      bn_BD: ডকুমেন্ট
+      zh_Hans: 文档
+      ja_JP: ドキュメント
+    human_description:
+      en_US: Document to send (file_id, URL, or file path)
+      ru_RU: Документ для отправки (file_id, URL или путь к файлу)
+      bn_BD: পাঠানোর জন্য ডকুমেন্ট (file_id, URL, অথবা ফাইল পাথ)
+      zh_Hans: 要发送的文档（file_id、URL 或文件路径）
+      ja_JP: 送信するドキュメント（file_id、URL、またはファイルパス）
+    llm_description: Document identifier, URL, or file path
+    form: llm
+
+  - name: caption
+    type: string
+    required: false
+    label:
+      en_US: Caption
+      ru_RU: Подпись
+      bn_BD: ক্যাপশন
+      zh_Hans: 标题
+      ja_JP: キャプション
+    human_description:
+      en_US: Document caption (0-1024 characters)
+      ru_RU: Подпись к документу (0-1024 символа)
+      bn_BD: ডকুমেন্ট ক্যাপশন (০-১০২৪ অক্ষর)
+      zh_Hans: 文档标题（0-1024 个字符）
+      ja_JP: ドキュメントのキャプション（0-1024 文字）
+    form: llm
+
+  - name: filename
+    type: string
+    required: false
+    label:
+      en_US: Filename
+      ru_RU: Имя файла
+      bn_BD: ফাইলের নাম
+      zh_Hans: 文件名
+      ja_JP: ファイル名
+    human_description:
+      en_US: Custom filename for the document
+      ru_RU: Пользовательское имя файла для документа
+      bn_BD: ডকুমেন্টের জন্য কাস্টম ফাইলের নাম
+      zh_Hans: 文档的自定义文件名
+      ja_JP: ドキュメントのカスタムファイル名
+    form: form
+
+  - name: parse_mode
+    type: select
+    required: false
+    default: ""
+    options:
+      - value: ""
+        label:
+          en_US: None
+      - value: "Markdown"
+        label:
+          en_US: Markdown
+      - value: "HTML"
+        label:
+          en_US: HTML
+    label:
+      en_US: Parse Mode
+      ru_RU: Режим разбора
+      bn_BD: পার্স মোড
+      zh_Hans: 解析模式
+      ja_JP: パースモード
+    human_description:
+      en_US: Format for caption text parsing
+      ru_RU: Формат разбора текста подписи
+      bn_BD: ক্যাপশন টেক্সট পার্সিংয়ের ফর্ম্যাট
+      zh_Hans: 标题文本解析格式
+      ja_JP: キャプションテキストの解析フォーマット
+    form: form
+
+  - name: disable_notification
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Silent Mode
+      ru_RU: Тихий режим
+      bn_BD: নীরব মোড
+      zh_Hans: 静音模式
+      ja_JP: サイレントモード
+    human_description:
+      en_US: Send document silently
+      ru_RU: Отправить документ тихо
+      bn_BD: নীরবে ডকুমেন্ট পাঠান
+      zh_Hans: 静默发送文档
+      ja_JP: サイレント送信
+    form: form
+
+extra:
+  python:
+    source: tools/send_document.py
