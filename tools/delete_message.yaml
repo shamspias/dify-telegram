@@ -1,0 +1,58 @@
+identity:
+  name: delete_message
+  author: shamspias
+  label:
+    en_US: Delete Message
+    ru_RU: Удалить сообщение
+    bn_BD: বার্তা মুছুন
+    zh_Hans: 删除消息
+    ja_JP: メッセージを削除
+description:
+  human:
+    en_US: Delete a message from a chat
+    ru_RU: Удалить сообщение из чата
+    bn_BD: চ্যাট থেকে একটি বার্তা মুছুন
+    zh_Hans: 从聊天中删除消息
+    ja_JP: チャットからメッセージを削除
+  llm: Delete a specific message from a Telegram chat (works for messages sent by bot or in groups where bot is admin)
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    human_description:
+      en_US: Unique identifier for the target chat
+      ru_RU: Уникальный идентификатор целевого чата
+      bn_BD: লক্ষ্য চ্যাটের অনন্য শনাক্তকারী
+      zh_Hans: 目标聊天的唯一标识符
+      ja_JP: 対象チャットの一意の識別子
+    llm_description: Chat ID where message is located
+    form: llm
+
+  - name: message_id
+    type: number
+    required: true
+    label:
+      en_US: Message ID
+      ru_RU: ID сообщения
+      bn_BD: বার্তা আইডি
+      zh_Hans: 消息 ID
+      ja_JP: メッセージ ID
+    human_description:
+      en_US: Identifier of the message to delete
+      ru_RU: Идентификатор сообщения для удаления
+      bn_BD: মুছে ফেলার বার্তার শনাক্তকারী
+      zh_Hans: 要删除的消息标识符
+      ja_JP: 削除するメッセージの識別子
+    llm_description: Message ID to delete
+    form: llm
+
+extra:
+  python:
+    source: tools/delete_message.py
