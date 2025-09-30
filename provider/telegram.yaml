@@ -1,0 +1,105 @@
+identity:
+  author: your_username
+  name: telegram
+  label:
+    en_US: Telegram Bot
+    ru_RU: Telegram Бот
+    bn_BD: টেলিগ্রাম বট
+    zh_Hans: Telegram 机器人
+    ja_JP: Telegram ボット
+  description:
+    en_US: Complete Telegram Bot API integration
+    ru_RU: Полная интеграция Telegram Bot API
+    bn_BD: সম্পূর্ণ টেলিগ্রাম বট API ইন্টিগ্রেশন
+    zh_Hans: 完整的 Telegram Bot API 集成
+    ja_JP: 完全な Telegram Bot API 統合
+  icon: telegram.svg
+
+credentials_for_provider:
+  bot_token:
+    type: secret-input
+    required: true
+    label:
+      en_US: Bot Token
+      ru_RU: Токен бота
+      bn_BD: বট টোকেন
+      zh_Hans: 机器人令牌
+      ja_JP: ボットトークン
+    placeholder:
+      en_US: Enter your Telegram Bot Token from @BotFather
+      ru_RU: Введите токен Telegram бота от @BotFather
+      bn_BD: @BotFather থেকে আপনার টেলিগ্রাম বট টোকেন লিখুন
+      zh_Hans: 从 @BotFather 输入您的 Telegram 机器人令牌
+      ja_JP: @BotFather から Telegram ボットトークンを入力してください
+    help:
+      en_US: Get your bot token from @BotFather on Telegram
+      ru_RU: Получите токен бота от @BotFather в Telegram
+      bn_BD: টেলিগ্রামে @BotFather থেকে আপনার বট টোকেন পান
+      zh_Hans: 从 Telegram 上的 @BotFather 获取您的机器人令牌
+      ja_JP: Telegram の @BotFather からボットトークンを取得してください
+    url: https://core.telegram.org/bots#6-botfather
+
+tools:
+  # Message Operations
+  - tools/send_message.yaml
+  - tools/forward_message.yaml
+  - tools/copy_message.yaml
+  - tools/edit_message_text.yaml
+  - tools/edit_message_caption.yaml
+  - tools/delete_message.yaml
+  - tools/pin_chat_message.yaml
+  - tools/unpin_chat_message.yaml
+  - tools/unpin_all_chat_messages.yaml
+  - tools/send_chat_action.yaml
+  
+  # Media Operations
+  - tools/send_photo.yaml
+  - tools/send_video.yaml
+  - tools/send_audio.yaml
+  - tools/send_document.yaml
+  - tools/send_animation.yaml
+  - tools/send_voice.yaml
+  - tools/send_video_note.yaml
+  - tools/send_sticker.yaml
+  - tools/send_location.yaml
+  - tools/send_venue.yaml
+  - tools/send_contact.yaml
+  - tools/send_poll.yaml
+  - tools/send_dice.yaml
+  - tools/send_media_group.yaml
+  
+  # Chat Operations
+  - tools/get_chat.yaml
+  - tools/get_chat_administrators.yaml
+  - tools/get_chat_member.yaml
+  - tools/get_chat_members_count.yaml
+  - tools/leave_chat.yaml
+  - tools/set_chat_description.yaml
+  - tools/set_chat_title.yaml
+  - tools/set_chat_photo.yaml
+  - tools/delete_chat_photo.yaml
+  - tools/restrict_chat_member.yaml
+  - tools/promote_chat_member.yaml
+  - tools/ban_chat_member.yaml
+  - tools/unban_chat_member.yaml
+  - tools/export_chat_invite_link.yaml
+  - tools/create_chat_invite_link.yaml
+  - tools/revoke_chat_invite_link.yaml
+  - tools/set_chat_permissions.yaml
+  
+  # Callback & Inline
+  - tools/answer_callback_query.yaml
+  - tools/answer_inline_query.yaml
+  - tools/stop_poll.yaml
+  
+  # File Operations
+  - tools/get_file.yaml
+  
+  # Webhook Operations
+  - tools/set_webhook.yaml
+  - tools/delete_webhook.yaml
+  - tools/get_webhook_info.yaml
+
+extra:
+  python:
+    source: provider/telegram.py
