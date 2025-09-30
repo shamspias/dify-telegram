@@ -1,0 +1,75 @@
+identity:
+  name: send_sticker
+  author: shamspias
+  label:
+    en_US: Send Sticker
+    ru_RU: Отправить стикер
+    bn_BD: স্টিকার পাঠান
+    zh_Hans: 发送贴纸
+    ja_JP: ステッカーを送信
+description:
+  human:
+    en_US: Send static .WEBP, animated .TGS, or video .WEBM stickers
+    ru_RU: Отправить статические .WEBP, анимированные .TGS или видео .WEBM стикеры
+    bn_BD: স্ট্যাটিক .WEBP, অ্যানিমেটেড .TGS, অথবা ভিডিও .WEBM স্টিকার পাঠান
+    zh_Hans: 发送静态 .WEBP、动画 .TGS 或视频 .WEBM 贴纸
+    ja_JP: 静的 .WEBP、アニメーション .TGS、またはビデオ .WEBM ステッカーを送信
+  llm: Send stickers to Telegram chats (supports static, animated, and video stickers)
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    human_description:
+      en_US: Unique identifier for the target chat
+      ru_RU: Уникальный идентификатор целевого чата
+      bn_BD: লক্ষ্য চ্যাটের অনন্য শনাক্তকারী
+      zh_Hans: 目标聊天的唯一标识符
+      ja_JP: 対象チャットの一意の識別子
+    llm_description: Target chat ID or username
+    form: llm
+
+  - name: sticker
+    type: string
+    required: true
+    label:
+      en_US: Sticker
+      ru_RU: Стикер
+      bn_BD: স্টিকার
+      zh_Hans: 贴纸
+      ja_JP: ステッカー
+    human_description:
+      en_US: Sticker to send (file_id, URL, or file path)
+      ru_RU: Стикер для отправки (file_id, URL или путь к файлу)
+      bn_BD: পাঠানোর জন্য স্টিকার (file_id, URL, অথবা ফাইল পাথ)
+      zh_Hans: 要发送的贴纸（file_id、URL 或文件路径）
+      ja_JP: 送信するステッカー（file_id、URL、またはファイルパス）
+    llm_description: Sticker identifier, URL, or file path
+    form: llm
+
+  - name: emoji
+    type: string
+    required: false
+    label:
+      en_US: Emoji
+      ru_RU: Эмодзи
+      bn_BD: ইমোজি
+      zh_Hans: 表情符号
+      ja_JP: 絵文字
+    human_description:
+      en_US: Emoji associated with the sticker (for custom stickers)
+      ru_RU: Эмодзи, связанное со стикером (для пользовательских стикеров)
+      bn_BD: স্টিকারের সাথে যুক্ত ইমোজি (কাস্টম স্টিকারের জন্য)
+      zh_Hans: 与贴纸关联的表情符号（用于自定义贴纸）
+      ja_JP: ステッカーに関連付けられた絵文字（カスタムステッカー用）
+    form: form
+
+extra:
+  python:
+    source: tools/send_sticker.py
