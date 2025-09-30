@@ -1,0 +1,126 @@
+identity:
+  name: send_audio
+  author: shamspias
+  label:
+    en_US: Send Audio
+    ru_RU: Отправить аудио
+    bn_BD: অডিও পাঠান
+    zh_Hans: 发送音频
+    ja_JP: オーディオを送信
+description:
+  human:
+    en_US: Send audio files (music) to a Telegram chat
+    ru_RU: Отправить аудио файлы (музыку) в чат Telegram
+    bn_BD: টেলিগ্রাম চ্যাটে অডিও ফাইল (সঙ্গীত) পাঠান
+    zh_Hans: 向 Telegram 聊天发送音频文件（音乐）
+    ja_JP: Telegram チャットにオーディオファイル（音楽）を送信
+  llm: Send audio files as music with metadata like performer, title, and duration
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    human_description:
+      en_US: Unique identifier for the target chat
+      ru_RU: Уникальный идентификатор целевого чата
+      bn_BD: লক্ষ্য চ্যাটের অনন্য শনাক্তকারী
+      zh_Hans: 目标聊天的唯一标识符
+      ja_JP: 対象チャットの一意の識別子
+    llm_description: Target chat ID or username
+    form: llm
+
+  - name: audio
+    type: string
+    required: true
+    label:
+      en_US: Audio
+      ru_RU: Аудио
+      bn_BD: অডিও
+      zh_Hans: 音频
+      ja_JP: オーディオ
+    human_description:
+      en_US: Audio file to send (file_id, URL, or file path)
+      ru_RU: Аудио файл для отправки (file_id, URL или путь к файлу)
+      bn_BD: পাঠানোর জন্য অডিও ফাইল (file_id, URL, অথবা ফাইল পাথ)
+      zh_Hans: 要发送的音频文件（file_id、URL 或文件路径）
+      ja_JP: 送信するオーディオファイル（file_id、URL、またはファイルパス）
+    llm_description: Audio identifier, URL, or file path
+    form: llm
+
+  - name: caption
+    type: string
+    required: false
+    label:
+      en_US: Caption
+      ru_RU: Подпись
+      bn_BD: ক্যাপশন
+      zh_Hans: 标题
+      ja_JP: キャプション
+    human_description:
+      en_US: Audio caption (0-1024 characters)
+      ru_RU: Подпись к аудио (0-1024 символа)
+      bn_BD: অডিও ক্যাপশন (০-১০২৪ অক্ষর)
+      zh_Hans: 音频标题（0-1024 个字符）
+      ja_JP: オーディオのキャプション（0-1024 文字）
+    form: llm
+
+  - name: duration
+    type: number
+    required: false
+    label:
+      en_US: Duration (seconds)
+      ru_RU: Длительность (секунды)
+      bn_BD: সময়কাল (সেকেন্ড)
+      zh_Hans: 时长（秒）
+      ja_JP: 長さ（秒）
+    human_description:
+      en_US: Duration of the audio in seconds
+      ru_RU: Длительность аудио в секундах
+      bn_BD: অডিওর সময়কাল সেকেন্ডে
+      zh_Hans: 音频的时长（秒）
+      ja_JP: オーディオの長さ（秒）
+    form: form
+
+  - name: performer
+    type: string
+    required: false
+    label:
+      en_US: Performer
+      ru_RU: Исполнитель
+      bn_BD: পারফরমার
+      zh_Hans: 表演者
+      ja_JP: アーティスト
+    human_description:
+      en_US: Performer/artist name
+      ru_RU: Имя исполнителя/артиста
+      bn_BD: পারফরমার/শিল্পীর নাম
+      zh_Hans: 表演者/艺术家姓名
+      ja_JP: アーティスト名
+    form: form
+
+  - name: title
+    type: string
+    required: false
+    label:
+      en_US: Title
+      ru_RU: Название
+      bn_BD: শিরোনাম
+      zh_Hans: 标题
+      ja_JP: タイトル
+    human_description:
+      en_US: Track title
+      ru_RU: Название трека
+      bn_BD: ট্র্যাক শিরোনাম
+      zh_Hans: 曲目标题
+      ja_JP: トラックタイトル
+    form: form
+
+extra:
+  python:
+    source: tools/send_audio.py
