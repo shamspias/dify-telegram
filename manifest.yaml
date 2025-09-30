@@ -1,0 +1,40 @@
+version: 0.0.1
+type: plugin
+author: shamspias
+name: telegram_bot
+label:
+  en_US: Telegram Bot
+  ru_RU: Telegram Бот
+  bn_BD: টেলিগ্রাম বট
+  zh_Hans: Telegram 机器人
+  ja_JP: Telegram ボット
+description:
+  en_US: Comprehensive Telegram Bot API integration with chat, message, media, and file operations
+  ru_RU: Полная интеграция Telegram Bot API с операциями чата, сообщений, медиа и файлов
+  bn_BD: চ্যাট, বার্তা, মিডিয়া এবং ফাইল অপারেশন সহ সম্পূর্ণ টেলিগ্রাম বট API ইন্টিগ্রেশন
+  zh_Hans: 全面的 Telegram Bot API 集成，包括聊天、消息、媒体和文件操作
+  ja_JP: チャット、メッセージ、メディア、ファイル操作を含む包括的な Telegram Bot API 統合
+icon: telegram.svg
+resource:
+  memory: 268435456  # 256MB
+  permission:
+    tool:
+      enabled: true
+    model:
+      enabled: true
+      llm: true
+plugins:
+  tools:
+    - provider/telegram.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+created_at: 2025-01-15T00:00:00.000000+00:00
+privacy: PRIVACY.md
+verified: false
