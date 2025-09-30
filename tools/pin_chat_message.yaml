@@ -1,0 +1,76 @@
+identity:
+  name: pin_chat_message
+  author: shamspias
+  label:
+    en_US: Pin Chat Message
+    ru_RU: Закрепить сообщение
+    bn_BD: চ্যাট বার্তা পিন করুন
+    zh_Hans: 置顶聊天消息
+    ja_JP: チャットメッセージをピン留め
+description:
+  human:
+    en_US: Pin a message in a group or channel
+    ru_RU: Закрепить сообщение в группе или канале
+    bn_BD: একটি গ্রুপ বা চ্যানেলে বার্তা পিন করুন
+    zh_Hans: 在群组或频道中置顶消息
+    ja_JP: グループまたはチャンネルでメッセージをピン留め
+  llm: Pin a message to the top of a Telegram chat (bot must be administrator with can_pin_messages permission)
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    human_description:
+      en_US: Unique identifier for the target chat
+      ru_RU: Уникальный идентификатор целевого чата
+      bn_BD: লক্ষ্য চ্যাটের অনন্য শনাক্তকারী
+      zh_Hans: 目标聊天的唯一标识符
+      ja_JP: 対象チャットの一意の識別子
+    llm_description: Chat ID where to pin the message
+    form: llm
+
+  - name: message_id
+    type: number
+    required: true
+    label:
+      en_US: Message ID
+      ru_RU: ID сообщения
+      bn_BD: বার্তা আইডি
+      zh_Hans: 消息 ID
+      ja_JP: メッセージ ID
+    human_description:
+      en_US: Identifier of the message to pin
+      ru_RU: Идентификатор сообщения для закрепления
+      bn_BD: পিন করার বার্তার শনাক্তকারী
+      zh_Hans: 要置顶的消息标识符
+      ja_JP: ピン留めするメッセージの識別子
+    llm_description: Message ID to pin
+    form: llm
+
+  - name: disable_notification
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Silent Pin
+      ru_RU: Тихое закрепление
+      bn_BD: নীরব পিন
+      zh_Hans: 静默置顶
+      ja_JP: サイレントピン
+    human_description:
+      en_US: Pin the message without notifying all members
+      ru_RU: Закрепить сообщение без уведомления всех участников
+      bn_BD: সব সদস্যদের বিজ্ঞপ্তি না দিয়ে বার্তা পিন করুন
+      zh_Hans: 置顶消息而不通知所有成员
+      ja_JP: すべてのメンバーに通知せずにメッセージをピン留め
+    form: form
+
+extra:
+  python:
+    source: tools/pin_chat_message.py
