@@ -1,0 +1,113 @@
+identity:
+  name: answer_callback_query
+  author: shamspias
+  label:
+    en_US: Answer Callback Query
+    ru_RU: Ответить на callback запрос
+    bn_BD: কলব্যাক কুয়েরির উত্তর দিন
+    zh_Hans: 回答回调查询
+    ja_JP: コールバッククエリに応答
+description:
+  human:
+    en_US: Send answer to callback queries from inline keyboards
+    ru_RU: Отправить ответ на callback запросы от встроенных клавиатур
+    bn_BD: ইনলাইন কীবোর্ড থেকে কলব্যাক কুয়েরির উত্তর পাঠান
+    zh_Hans: 发送对内联键盘回调查询的回答
+    ja_JP: インラインキーボードからのコールバッククエリに回答を送信
+  llm: Respond to callback queries triggered by inline keyboard buttons with optional text, alert, or URL
+
+parameters:
+  - name: callback_query_id
+    type: string
+    required: true
+    label:
+      en_US: Callback Query ID
+      ru_RU: ID callback запроса
+      bn_BD: কলব্যাক কুয়েরি আইডি
+      zh_Hans: 回调查询 ID
+      ja_JP: コールバッククエリ ID
+    human_description:
+      en_US: Unique identifier for the callback query to answer
+      ru_RU: Уникальный идентификатор callback запроса для ответа
+      bn_BD: উত্তর দেওয়ার জন্য কলব্যাক কুয়েরির অনন্য শনাক্তকারী
+      zh_Hans: 要回答的回调查询的唯一标识符
+      ja_JP: 回答するコールバッククエリの一意の識別子
+    llm_description: Callback query ID from the button press
+    form: llm
+
+  - name: text
+    type: string
+    required: false
+    label:
+      en_US: Notification Text
+      ru_RU: Текст уведомления
+      bn_BD: বিজ্ঞপ্তি টেক্সট
+      zh_Hans: 通知文本
+      ja_JP: 通知テキスト
+    human_description:
+      en_US: Text to show to the user (0-200 characters)
+      ru_RU: Текст для показа пользователю (0-200 символов)
+      bn_BD: ব্যবহারকারীকে দেখানোর জন্য টেক্সট (০-২০০ অক্ষর)
+      zh_Hans: 向用户显示的文本（0-200 个字符）
+      ja_JP: ユーザーに表示するテキスト（0-200 文字）
+    form: llm
+
+  - name: show_alert
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Show Alert
+      ru_RU: Показать предупреждение
+      bn_BD: সতর্কতা দেখান
+      zh_Hans: 显示警报
+      ja_JP: アラートを表示
+    human_description:
+      en_US: Show alert instead of notification at top of screen
+      ru_RU: Показать предупреждение вместо уведомления в верхней части экрана
+      bn_BD: স্ক্রিনের উপরে বিজ্ঞপ্তির পরিবর্তে সতর্কতা দেখান
+      zh_Hans: 在屏幕顶部显示警报而不是通知
+      ja_JP: 画面上部に通知の代わりにアラートを表示
+    form: form
+
+  - name: url
+    type: string
+    required: false
+    label:
+      en_US: URL
+      ru_RU: URL
+      bn_BD: URL
+      zh_Hans: URL
+      ja_JP: URL
+    human_description:
+      en_US: URL to open by the user's client
+      ru_RU: URL для открытия клиентом пользователя
+      bn_BD: ব্যবহারকারীর ক্লায়েন্ট দ্বারা খোলার জন্য URL
+      zh_Hans: 用户客户端打开的 URL
+      ja_JP: ユーザーのクライアントで開く URL
+    form: form
+
+  - name: cache_time
+    type: number
+    required: false
+    default: 0
+    label:
+      en_US: Cache Time
+      ru_RU: Время кеширования
+      bn_BD: ক্যাশ সময়
+      zh_Hans: 缓存时间
+      ja_JP: キャッシュ時間
+    human_description:
+      en_US:
+        Maximum time in seconds to cache the result (default: 0)
+      ru_RU:
+        Максимальное время кеширования результата в секундах (по умолчанию: 0)
+      bn_BD:
+        ফলাফল ক্যাশ করার সর্বাধিক সময় সেকেন্ডে (ডিফল্ট: ০)
+      zh_Hans: 缓存结果的最大时间（秒）（默认：0）
+      ja_JP: 結果をキャッシュする最大時間（秒）（デフォルト：0）
+    form: form
+
+extra:
+  python:
+    source: tools/answer_callback_query.py
