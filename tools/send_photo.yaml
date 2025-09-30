@@ -1,0 +1,121 @@
+identity:
+  name: send_photo
+  author: shamspias
+  label:
+    en_US: Send Photo
+    ru_RU: Отправить фото
+    bn_BD: ফটো পাঠান
+    zh_Hans: 发送照片
+    ja_JP: 写真を送信
+description:
+  human:
+    en_US: Send a photo to a Telegram chat
+    ru_RU: Отправить фото в чат Telegram
+    bn_BD: টেলিগ্রাম চ্যাটে একটি ফটো পাঠান
+    zh_Hans: 向 Telegram 聊天发送照片
+    ja_JP: Telegram チャットに写真を送信
+  llm: Send a photo to a specified Telegram chat with optional caption and formatting
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    human_description:
+      en_US: Unique identifier for the target chat or username (@username)
+      ru_RU: Уникальный идентификатор целевого чата или имя пользователя
+      bn_BD: লক্ষ্য চ্যাটের জন্য অনন্য শনাক্তকারী বা ব্যবহারকারীর নাম
+      zh_Hans: 目标聊天的唯一标识符或用户名
+      ja_JP: 対象チャットの一意の識別子またはユーザー名
+    llm_description: Target chat ID or username
+    form: llm
+
+  - name: photo
+    type: string
+    required: true
+    label:
+      en_US: Photo
+      ru_RU: Фото
+      bn_BD: ফটো
+      zh_Hans: 照片
+      ja_JP: 写真
+    human_description:
+      en_US: Photo to send (file_id, URL, or file path)
+      ru_RU: Фото для отправки (file_id, URL или путь к файлу)
+      bn_BD: পাঠানোর জন্য ফটো (file_id, URL, অথবা ফাইল পাথ)
+      zh_Hans: 要发送的照片（file_id、URL 或文件路径）
+      ja_JP: 送信する写真（file_id、URL、またはファイルパス）
+    llm_description: Photo identifier, URL, or file path
+    form: llm
+
+  - name: caption
+    type: string
+    required: false
+    label:
+      en_US: Caption
+      ru_RU: Подпись
+      bn_BD: ক্যাপশন
+      zh_Hans: 标题
+      ja_JP: キャプション
+    human_description:
+      en_US: Photo caption (0-1024 characters)
+      ru_RU: Подпись к фото (0-1024 символа)
+      bn_BD: ফটো ক্যাপশন (০-১০২৪ অক্ষর)
+      zh_Hans: 照片标题（0-1024 个字符）
+      ja_JP: 写真のキャプション（0-1024 文字）
+    form: llm
+
+  - name: parse_mode
+    type: select
+    required: false
+    default: ""
+    options:
+      - value: ""
+        label:
+          en_US: None
+      - value: "Markdown"
+        label:
+          en_US: Markdown
+      - value: "HTML"
+        label:
+          en_US: HTML
+    label:
+      en_US: Parse Mode
+      ru_RU: Режим разбора
+      bn_BD: পার্স মোড
+      zh_Hans: 解析模式
+      ja_JP: パースモード
+    human_description:
+      en_US: Format for caption text parsing
+      ru_RU: Формат разбора текста подписи
+      bn_BD: ক্যাপশন টেক্সট পার্সিংয়ের ফর্ম্যাট
+      zh_Hans: 标题文本解析格式
+      ja_JP: キャプションテキストの解析フォーマット
+    form: form
+
+  - name: disable_notification
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Silent Mode
+      ru_RU: Тихий режим
+      bn_BD: নীরব মোড
+      zh_Hans: 静音模式
+      ja_JP: サイレントモード
+    human_description:
+      en_US: Send photo silently
+      ru_RU: Отправить фото тихо
+      bn_BD: নীরবে ফটো পাঠান
+      zh_Hans: 静默发送照片
+      ja_JP: サイレント送信
+    form: form
+
+extra:
+  python:
+    source: tools/send_photo.py
