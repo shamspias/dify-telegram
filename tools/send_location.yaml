@@ -1,0 +1,144 @@
+identity:
+  name: send_location
+  author: shamspias
+  label:
+    en_US: Send Location
+    ru_RU: Отправить местоположение
+    bn_BD: অবস্থান পাঠান
+    zh_Hans: 发送位置
+    ja_JP: 位置を送信
+description:
+  human:
+    en_US: Send a location point on the map
+    ru_RU: Отправить точку на карте
+    bn_BD: মানচিত্রে একটি অবস্থান পয়েন্ট পাঠান
+    zh_Hans: 在地图上发送位置点
+    ja_JP: 地図上の位置ポイントを送信
+  llm: Send geographic location coordinates to a Telegram chat with optional live location tracking
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    human_description:
+      en_US: Unique identifier for the target chat
+      ru_RU: Уникальный идентификатор целевого чата
+      bn_BD: লক্ষ্য চ্যাটের অনন্য শনাক্তকারী
+      zh_Hans: 目标聊天的唯一标识符
+      ja_JP: 対象チャットの一意の識別子
+    llm_description: Target chat ID or username
+    form: llm
+
+  - name: latitude
+    type: number
+    required: true
+    label:
+      en_US: Latitude
+      ru_RU: Широта
+      bn_BD: অক্ষাংশ
+      zh_Hans: 纬度
+      ja_JP: 緯度
+    human_description:
+      en_US: Latitude of the location (-90 to 90)
+      ru_RU: Широта местоположения (-90 до 90)
+      bn_BD: অবস্থানের অক্ষাংশ (-৯০ থেকে ৯০)
+      zh_Hans: 位置的纬度（-90 到 90）
+      ja_JP: 位置の緯度（-90 から 90）
+    llm_description: Latitude coordinate
+    form: llm
+
+  - name: longitude
+    type: number
+    required: true
+    label:
+      en_US: Longitude
+      ru_RU: Долгота
+      bn_BD: দ্রাঘিমাংশ
+      zh_Hans: 经度
+      ja_JP: 経度
+    human_description:
+      en_US: Longitude of the location (-180 to 180)
+      ru_RU: Долгота местоположения (-180 до 180)
+      bn_BD: অবস্থানের দ্রাঘিমাংশ (-১৮০ থেকে ১৮০)
+      zh_Hans: 位置的经度（-180 到 180）
+      ja_JP: 位置の経度（-180 から 180）
+    llm_description: Longitude coordinate
+    form: llm
+
+  - name: horizontal_accuracy
+    type: number
+    required: false
+    label:
+      en_US: Horizontal Accuracy (meters)
+      ru_RU: Горизонтальная точность (метры)
+      bn_BD: অনুভূমিক নির্ভুলতা (মিটার)
+      zh_Hans: 水平精度（米）
+      ja_JP: 水平精度（メートル）
+    human_description:
+      en_US: Radius of uncertainty for the location (0-1500 meters)
+      ru_RU: Радиус неопределенности местоположения (0-1500 метров)
+      bn_BD: অবস্থানের অনিশ্চয়তার ব্যাসার্ধ (০-১৫০০ মিটার)
+      zh_Hans: 位置的不确定性半径（0-1500 米）
+      ja_JP: 位置の不確実性の半径（0-1500 メートル）
+    form: form
+
+  - name: live_period
+    type: number
+    required: false
+    label:
+      en_US: Live Period (seconds)
+      ru_RU: Период прямой трансляции (секунды)
+      bn_BD: লাইভ সময়কাল (সেকেন্ড)
+      zh_Hans: 实时位置期间（秒）
+      ja_JP: ライブ期間（秒）
+    human_description:
+      en_US: Period for live location updates (60-86400 seconds)
+      ru_RU: Период обновления местоположения в реальном времени (60-86400 секунд)
+      bn_BD: লাইভ অবস্থান আপডেটের সময়কাল (৬০-৮৬৪০০ সেকেন্ড)
+      zh_Hans: 实时位置更新周期（60-86400 秒）
+      ja_JP: ライブロケーション更新の期間（60-86400 秒）
+    form: form
+
+  - name: heading
+    type: number
+    required: false
+    label:
+      en_US: Heading (degrees)
+      ru_RU: Направление (градусы)
+      bn_BD: দিকনির্দেশ (ডিগ্রি)
+      zh_Hans: 方向（度）
+      ja_JP: 方向（度）
+    human_description:
+      en_US: Direction in which user is moving (1-360 degrees)
+      ru_RU: Направление движения пользователя (1-360 градусов)
+      bn_BD: ব্যবহারকারী যে দিকে চলছে (১-৩৬০ ডিগ্রি)
+      zh_Hans: 用户移动的方向（1-360 度）
+      ja_JP: ユーザーが移動している方向（1-360 度）
+    form: form
+
+  - name: proximity_alert_radius
+    type: number
+    required: false
+    label:
+      en_US: Proximity Alert Radius (meters)
+      ru_RU: Радиус оповещения о близости (метры)
+      bn_BD: নিকটবর্তীতা সতর্কতা ব্যাসার্ধ (মিটার)
+      zh_Hans: 接近警报半径（米）
+      ja_JP: 近接アラート半径（メートル）
+    human_description:
+      en_US: Maximum distance for proximity alerts (1-100000 meters)
+      ru_RU: Максимальное расстояние для оповещений о близости (1-100000 метров)
+      bn_BD: নিকটবর্তীতা সতর্কতার জন্য সর্বাধিক দূরত্ব (১-১০০০০০ মিটার)
+      zh_Hans: 接近警报的最大距离（1-100000 米）
+      ja_JP: 近接アラートの最大距離（1-100000 メートル）
+    form: form
+
+extra:
+  python:
+    source: tools/send_location.py
