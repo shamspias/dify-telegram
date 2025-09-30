@@ -1,0 +1,110 @@
+identity:
+  name: send_contact
+  author: shamspias
+  label:
+    en_US: Send Contact
+    ru_RU: Отправить контакт
+    bn_BD: যোগাযোগ পাঠান
+    zh_Hans: 发送联系人
+    ja_JP: 連絡先を送信
+description:
+  human:
+    en_US: Send phone contacts to a Telegram chat
+    ru_RU: Отправить телефонный контакт в чат Telegram
+    bn_BD: টেলিগ্রাম চ্যাটে ফোন যোগাযোগ পাঠান
+    zh_Hans: 向 Telegram 聊天发送电话联系人
+    ja_JP: Telegram チャットに電話の連絡先を送信
+  llm: Share phone contact information with name and phone number
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    human_description:
+      en_US: Unique identifier for the target chat
+      ru_RU: Уникальный идентификатор целевого чата
+      bn_BD: লক্ষ্য চ্যাটের অনন্য শনাক্তকারী
+      zh_Hans: 目标聊天的唯一标识符
+      ja_JP: 対象チャットの一意の識別子
+    llm_description: Target chat ID or username
+    form: llm
+
+  - name: phone_number
+    type: string
+    required: true
+    label:
+      en_US: Phone Number
+      ru_RU: Номер телефона
+      bn_BD: ফোন নম্বর
+      zh_Hans: 电话号码
+      ja_JP: 電話番号
+    human_description:
+      en_US: Contact's phone number
+      ru_RU: Номер телефона контакта
+      bn_BD: যোগাযোগের ফোন নম্বর
+      zh_Hans: 联系人的电话号码
+      ja_JP: 連絡先の電話番号
+    llm_description: Phone number with country code
+    form: llm
+
+  - name: first_name
+    type: string
+    required: true
+    label:
+      en_US: First Name
+      ru_RU: Имя
+      bn_BD: প্রথম নাম
+      zh_Hans: 名字
+      ja_JP: 名
+    human_description:
+      en_US: Contact's first name
+      ru_RU: Имя контакта
+      bn_BD: যোগাযোগের প্রথম নাম
+      zh_Hans: 联系人的名字
+      ja_JP: 連絡先の名
+    llm_description: Contact first name
+    form: llm
+
+  - name: last_name
+    type: string
+    required: false
+    label:
+      en_US: Last Name
+      ru_RU: Фамилия
+      bn_BD: শেষ নাম
+      zh_Hans: 姓氏
+      ja_JP: 姓
+    human_description:
+      en_US: Contact's last name
+      ru_RU: Фамилия контакта
+      bn_BD: যোগাযোগের শেষ নাম
+      zh_Hans: 联系人的姓氏
+      ja_JP: 連絡先の姓
+    form: form
+
+  - name: vcard
+    type: string
+    required: false
+    label:
+      en_US: vCard
+      ru_RU: vCard
+      bn_BD: vCard
+      zh_Hans: vCard
+      ja_JP: vCard
+    human_description:
+      en_US: Additional contact data in vCard format
+      ru_RU: Дополнительные данные контакта в формате vCard
+      bn_BD: vCard ফর্ম্যাটে অতিরিক্ত যোগাযোগ ডেটা
+      zh_Hans: vCard 格式的附加联系人数据
+      ja_JP: vCard 形式の追加連絡先データ
+    form: form
+
+extra:
+  python:
+    source: tools/send_contact.py
