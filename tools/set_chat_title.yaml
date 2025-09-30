@@ -1,0 +1,58 @@
+identity:
+  name: set_chat_title
+  author: shamspias
+  label:
+    en_US: Set Chat Title
+    ru_RU: Установить название чата
+    bn_BD: চ্যাট শিরোনাম সেট করুন
+    zh_Hans: 设置聊天标题
+    ja_JP: チャットタイトルを設定
+description:
+  human:
+    en_US: Change the title of a group or channel
+    ru_RU: Изменить название группы или канала
+    bn_BD: একটি গ্রুপ বা চ্যানেলের শিরোনাম পরিবর্তন করুন
+    zh_Hans: 更改群组或频道的标题
+    ja_JP: グループまたはチャンネルのタイトルを変更
+  llm: Change the title of a Telegram group or channel (bot must be administrator)
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    human_description:
+      en_US: Unique identifier for the target chat
+      ru_RU: Уникальный идентификатор целевого чата
+      bn_BD: লক্ষ্য চ্যাটের অনন্য শনাক্তকারী
+      zh_Hans: 目标聊天的唯一标识符
+      ja_JP: 対象チャットの一意の識別子
+    llm_description: Chat ID or username
+    form: llm
+
+  - name: title
+    type: string
+    required: true
+    label:
+      en_US: New Title
+      ru_RU: Новое название
+      bn_BD: নতুন শিরোনাম
+      zh_Hans: 新标题
+      ja_JP: 新しいタイトル
+    human_description:
+      en_US: New chat title (1-255 characters)
+      ru_RU: Новое название чата (1-255 символов)
+      bn_BD: নতুন চ্যাট শিরোনাম (১-২৫৫ অক্ষর)
+      zh_Hans: 新的聊天标题（1-255 个字符）
+      ja_JP: 新しいチャットタイトル（1-255 文字）
+    llm_description: New title for the chat
+    form: llm
+
+extra:
+  python:
+    source: tools/set_chat_title.py
