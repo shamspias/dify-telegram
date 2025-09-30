@@ -1,0 +1,40 @@
+identity:
+  name: get_chat_administrators
+  author: shamspias
+  label:
+    en_US: Get Chat Administrators
+    ru_RU: Получить администраторов чата
+    bn_BD: চ্যাট অ্যাডমিনিস্ট্রেটর পান
+    zh_Hans: 获取聊天管理员
+    ja_JP: チャット管理者を取得
+description:
+  human:
+    en_US: Get a list of administrators in a chat
+    ru_RU: Получить список администраторов чата
+    bn_BD: একটি চ্যাটের অ্যাডমিনিস্ট্রেটরদের তালিকা পান
+    zh_Hans: 获取聊天中的管理员列表
+    ja_JP: チャットの管理者リストを取得
+  llm: Retrieve list of administrators in a Telegram chat with their permissions and status
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    human_description:
+      en_US: Unique identifier for the target chat
+      ru_RU: Уникальный идентификатор целевого чата
+      bn_BD: লক্ষ্য চ্যাটের অনন্য শনাক্তকারী
+      zh_Hans: 目标聊天的唯一标识符
+      ja_JP: 対象チャットの一意の識別子
+    llm_description: Chat ID or username to get administrators from
+    form: llm
+
+extra:
+  python:
+    source: tools/get_chat_administrators.py
