@@ -1,0 +1,110 @@
+identity:
+  name: set_webhook
+  author: shamspias
+  label:
+    en_US: Set Webhook
+    ru_RU: Установить webhook
+    bn_BD: Webhook সেট করুন
+    zh_Hans: 设置 Webhook
+    ja_JP: Webhook を設定
+description:
+  human:
+    en_US: Set a webhook URL to receive updates
+    ru_RU: Установить URL webhook для получения обновлений
+    bn_BD: আপডেট পেতে একটি webhook URL সেট করুন
+    zh_Hans: 设置 Webhook URL 以接收更新
+    ja_JP: 更新を受信するための Webhook URL を設定
+  llm: Configure webhook URL for receiving bot updates instead of using polling
+
+parameters:
+  - name: url
+    type: string
+    required: true
+    label:
+      en_US: Webhook URL
+      ru_RU: URL webhook
+      bn_BD: Webhook URL
+      zh_Hans: Webhook URL
+      ja_JP: Webhook URL
+    human_description:
+      en_US: HTTPS URL to send updates to (leave empty to remove webhook)
+      ru_RU: HTTPS URL для отправки обновлений (оставьте пустым для удаления webhook)
+      bn_BD: আপডেট পাঠানোর জন্য HTTPS URL (webhook সরাতে খালি রাখুন)
+      zh_Hans: 发送更新的 HTTPS URL（留空以删除 webhook）
+      ja_JP: 更新を送信する HTTPS URL（webhook を削除するには空白のまま）
+    llm_description: HTTPS URL for webhook
+    form: llm
+
+  - name: max_connections
+    type: number
+    required: false
+    default: 40
+    label:
+      en_US: Max Connections
+      ru_RU: Макс. подключений
+      bn_BD: সর্বাধিক সংযোগ
+      zh_Hans: 最大连接数
+      ja_JP: 最大接続数
+    human_description:
+      en_US: Maximum allowed simultaneous HTTPS connections (1-100)
+      ru_RU: Максимальное количество одновременных HTTPS подключений (1-100)
+      bn_BD: সর্বাধিক অনুমোদিত সমসাময়িক HTTPS সংযোগ (১-১০০)
+      zh_Hans: 允许的最大同时 HTTPS 连接数（1-100）
+      ja_JP: 許可される最大同時 HTTPS 接続数（1-100）
+    form: form
+
+  - name: allowed_updates
+    type: string
+    required: false
+    label:
+      en_US: Allowed Updates
+      ru_RU: Разрешенные обновления
+      bn_BD: অনুমোদিত আপডেট
+      zh_Hans: 允许的更新
+      ja_JP: 許可される更新
+    human_description:
+      en_US: JSON array of update types to receive (e.g., ["message", "callback_query"])
+      ru_RU: JSON массив типов обновлений для получения (например, ["message", "callback_query"])
+      bn_BD: প্রাপ্ত আপডেট টাইপের JSON অ্যারে (যেমন, ["message", "callback_query"])
+      zh_Hans: 要接收的更新类型的 JSON 数组（例如 ["message", "callback_query"]）
+      ja_JP: 受信する更新タイプの JSON 配列（例：["message", "callback_query"]）
+    form: form
+
+  - name: drop_pending_updates
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Drop Pending Updates
+      ru_RU: Удалить ожидающие обновления
+      bn_BD: অপেক্ষমাণ আপডেট মুছুন
+      zh_Hans: 丢弃待处理的更新
+      ja_JP: 保留中の更新を破棄
+    human_description:
+      en_US: Drop all pending updates before setting webhook
+      ru_RU: Удалить все ожидающие обновления перед установкой webhook
+      bn_BD: webhook সেট করার আগে সব অপেক্ষমাণ আপডেট মুছুন
+      zh_Hans: 在设置 webhook 之前丢弃所有待处理的更新
+      ja_JP: webhook を設定する前にすべての保留中の更新を破棄
+    form: form
+
+  - name: secret_token
+    type: string
+    required: false
+    label:
+      en_US: Secret Token
+      ru_RU: Секретный токен
+      bn_BD: গোপন টোকেন
+      zh_Hans: 密钥令牌
+      ja_JP: シークレットトークン
+    human_description:
+      en_US: Secret token for webhook security (1-256 characters)
+      ru_RU: Секретный токен для безопасности webhook (1-256 символов)
+      bn_BD: webhook সুরক্ষার জন্য গোপন টোকেন (১-২৫৬ অক্ষর)
+      zh_Hans: 用于 webhook 安全的密钥令牌（1-256 个字符）
+      ja_JP: webhook セキュリティ用のシークレットトークン（1-256 文字）
+    form: form
+
+extra:
+  python:
+    source: tools/set_webhook.py
