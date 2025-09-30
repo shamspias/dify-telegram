@@ -1,0 +1,122 @@
+identity:
+  name: edit_message_text
+  author: shamspias
+  label:
+    en_US: Edit Message Text
+    ru_RU: Изменить текст сообщения
+    bn_BD: বার্তা টেক্সট সম্পাদনা করুন
+    zh_Hans: 编辑消息文本
+    ja_JP: メッセージテキストを編集
+description:
+  human:
+    en_US: Edit text and game messages sent by the bot
+    ru_RU: Изменить текст сообщений, отправленных ботом
+    bn_BD: বট দ্বারা পাঠানো বার্তার টেক্সট সম্পাদনা করুন
+    zh_Hans: 编辑机器人发送的文本消息
+    ja_JP: ボットが送信したテキストメッセージを編集
+  llm: Edit text content of messages previously sent by the bot with optional new formatting
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    human_description:
+      en_US: Unique identifier for the target chat
+      ru_RU: Уникальный идентификатор целевого чата
+      bn_BD: লক্ষ্য চ্যাটের অনন্য শনাক্তকারী
+      zh_Hans: 目标聊天的唯一标识符
+      ja_JP: 対象チャットの一意の識別子
+    llm_description: Chat ID where message is located
+    form: llm
+
+  - name: message_id
+    type: number
+    required: true
+    label:
+      en_US: Message ID
+      ru_RU: ID сообщения
+      bn_BD: বার্তা আইডি
+      zh_Hans: 消息 ID
+      ja_JP: メッセージ ID
+    human_description:
+      en_US: Identifier of the message to edit
+      ru_RU: Идентификатор сообщения для изменения
+      bn_BD: সম্পাদনা করার বার্তার শনাক্তকারী
+      zh_Hans: 要编辑的消息标识符
+      ja_JP: 編集するメッセージの識別子
+    llm_description: Message ID to edit
+    form: llm
+
+  - name: text
+    type: string
+    required: true
+    label:
+      en_US: New Text
+      ru_RU: Новый текст
+      bn_BD: নতুন টেক্সট
+      zh_Hans: 新文本
+      ja_JP: 新しいテキスト
+    human_description:
+      en_US: New text of the message (1-4096 characters)
+      ru_RU: Новый текст сообщения (1-4096 символов)
+      bn_BD: বার্তার নতুন টেক্সট (১-৪০৯৬ অক্ষর)
+      zh_Hans: 消息的新文本（1-4096 个字符）
+      ja_JP: メッセージの新しいテキスト（1-4096 文字）
+    llm_description: New message text
+    form: llm
+
+  - name: parse_mode
+    type: select
+    required: false
+    default: ""
+    options:
+      - value: ""
+        label:
+          en_US: None
+      - value: "Markdown"
+        label:
+          en_US: Markdown
+      - value: "HTML"
+        label:
+          en_US: HTML
+    label:
+      en_US: Parse Mode
+      ru_RU: Режим разбора
+      bn_BD: পার্স মোড
+      zh_Hans: 解析模式
+      ja_JP: パースモード
+    human_description:
+      en_US: Format for text parsing
+      ru_RU: Формат разбора текста
+      bn_BD: টেক্সট পার্সিংয়ের ফর্ম্যাট
+      zh_Hans: 文本解析格式
+      ja_JP: テキスト解析のフォーマット
+    form: form
+
+  - name: disable_web_page_preview
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Disable Web Preview
+      ru_RU: Отключить веб-превью
+      bn_BD: ওয়েব প্রিভিউ অক্ষম করুন
+      zh_Hans: 禁用网页预览
+      ja_JP: ウェブプレビューを無効化
+    human_description:
+      en_US: Disables link previews for links in the message
+      ru_RU: Отключает предпросмотр ссылок в сообщении
+      bn_BD: বার্তায় লিঙ্কের প্রিভিউ অক্ষম করে
+      zh_Hans: 禁用消息中链接的预览
+      ja_JP: メッセージ内のリンクのプレビューを無効化
+    form: form
+
+extra:
+  python:
+    source: tools/edit_message_text.py
