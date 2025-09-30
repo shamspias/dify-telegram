@@ -1,0 +1,40 @@
+identity:
+  name: get_chat
+  author: shamspias
+  label:
+    en_US: Get Chat Info
+    ru_RU: Получить информацию о чате
+    bn_BD: চ্যাট তথ্য পান
+    zh_Hans: 获取聊天信息
+    ja_JP: チャット情報を取得
+description:
+  human:
+    en_US: Get information about a chat (title, description, member count, etc.)
+    ru_RU: Получить информацию о чате (название, описание, количество участников и т.д.)
+    bn_BD: একটি চ্যাট সম্পর্কে তথ্য পান (শিরোনাম, বর্ণনা, সদস্য সংখ্যা, ইত্যাদি)
+    zh_Hans: 获取聊天信息（标题、描述、成员数量等）
+    ja_JP: チャット情報を取得（タイトル、説明、メンバー数など）
+  llm: Retrieve detailed information about a Telegram chat including title, type, description, and member count
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    human_description:
+      en_US: Unique identifier for the target chat or username (@username)
+      ru_RU: Уникальный идентификатор чата или имя пользователя
+      bn_BD: লক্ষ্য চ্যাটের অনন্য শনাক্তকারী বা ব্যবহারকারীর নাম
+      zh_Hans: 目标聊天的唯一标识符或用户名
+      ja_JP: 対象チャットの一意の識別子またはユーザー名
+    llm_description: Chat ID or username to get information about
+    form: llm
+
+extra:
+  python:
+    source: tools/get_chat.py
