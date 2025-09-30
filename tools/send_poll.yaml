@@ -1,0 +1,196 @@
+identity:
+  name: send_poll
+  author: shamspias
+  label:
+    en_US: Send Poll
+    ru_RU: Отправить опрос
+    bn_BD: পোল পাঠান
+    zh_Hans: 发送投票
+    ja_JP: 投票を送信
+description:
+  human:
+    en_US: Create and send a poll or quiz to a Telegram chat
+    ru_RU: Создать и отправить опрос или викторину в чат Telegram
+    bn_BD: একটি টেলিগ্রাম চ্যাটে পোল বা কুইজ তৈরি এবং পাঠান
+    zh_Hans: 创建并向 Telegram 聊天发送投票或测验
+    ja_JP: Telegram チャットに投票またはクイズを作成して送信
+  llm: Send interactive polls or quizzes to Telegram chats with multiple options and configuration
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    human_description:
+      en_US: Unique identifier for the target chat
+      ru_RU: Уникальный идентификатор целевого чата
+      bn_BD: লক্ষ্য চ্যাটের অনন্য শনাক্তকারী
+      zh_Hans: 目标聊天的唯一标识符
+      ja_JP: 対象チャットの一意の識別子
+    llm_description: Target chat ID or username
+    form: llm
+
+  - name: question
+    type: string
+    required: true
+    label:
+      en_US: Question
+      ru_RU: Вопрос
+      bn_BD: প্রশ্ন
+      zh_Hans: 问题
+      ja_JP: 質問
+    human_description:
+      en_US: Poll question (1-300 characters)
+      ru_RU: Вопрос опроса (1-300 символов)
+      bn_BD: পোল প্রশ্ন (১-৩০০ অক্ষর)
+      zh_Hans: 投票问题（1-300 个字符）
+      ja_JP: 投票の質問（1-300 文字）
+    llm_description: The poll question
+    form: llm
+
+  - name: options
+    type: string
+    required: true
+    label:
+      en_US: Options
+      ru_RU: Варианты
+      bn_BD: অপশনগুলি
+      zh_Hans: 选项
+      ja_JP: 選択肢
+    human_description:
+      en_US: Answer options (comma-separated, 2-10 options, each 1-100 chars)
+      ru_RU: Варианты ответов (через запятую, 2-10 вариантов, каждый 1-100 символов)
+      bn_BD: উত্তর অপশন (কমা দ্বারা বিভক্ত, ২-১০ অপশন, প্রতিটি ১-১০০ অক্ষর)
+      zh_Hans: 答案选项（逗号分隔，2-10 个选项，每个 1-100 个字符）
+      ja_JP: 回答の選択肢（カンマ区切り、2-10 個、各 1-100 文字）
+    llm_description: Comma-separated list of answer options
+    form: llm
+
+  - name: is_anonymous
+    type: boolean
+    required: false
+    default: true
+    label:
+      en_US: Anonymous
+      ru_RU: Анонимный
+      bn_BD: বেনামী
+      zh_Hans: 匿名
+      ja_JP: 匿名
+    human_description:
+      en_US: True if poll needs to be anonymous
+      ru_RU: True, если опрос должен быть анонимным
+      bn_BD: পোল বেনামী হতে হলে True
+      zh_Hans: 如果投票需要匿名，则为 True
+      ja_JP: 投票を匿名にする場合は True
+    form: form
+
+  - name: type
+    type: select
+    required: false
+    default: "regular"
+    options:
+      - value: "regular"
+        label:
+          en_US: Regular Poll
+          ru_RU: Обычный опрос
+          bn_BD: নিয়মিত পোল
+          zh_Hans: 常规投票
+          ja_JP: 通常の投票
+      - value: "quiz"
+        label:
+          en_US: Quiz
+          ru_RU: Викторина
+          bn_BD: কুইজ
+          zh_Hans: 测验
+          ja_JP: クイズ
+    label:
+      en_US: Poll Type
+      ru_RU: Тип опроса
+      bn_BD: পোলের ধরন
+      zh_Hans: 投票类型
+      ja_JP: 投票タイプ
+    human_description:
+      en_US: Type of poll (regular or quiz)
+      ru_RU: Тип опроса (обычный или викторина)
+      bn_BD: পোলের ধরন (নিয়মিত বা কুইজ)
+      zh_Hans: 投票类型（常规或测验）
+      ja_JP: 投票のタイプ（通常またはクイズ）
+    form: form
+
+  - name: allows_multiple_answers
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Multiple Answers
+      ru_RU: Множественные ответы
+      bn_BD: একাধিক উত্তর
+      zh_Hans: 多选
+      ja_JP: 複数回答
+    human_description:
+      en_US: True if poll allows multiple answers (only for regular polls)
+      ru_RU: True, если опрос разрешает несколько ответов (только для обычных опросов)
+      bn_BD: পোল একাধিক উত্তর অনুমতি দিলে True (শুধুমাত্র নিয়মিত পোলের জন্য)
+      zh_Hans: 如果投票允许多选则为 True（仅限常规投票）
+      ja_JP: 複数回答を許可する場合は True（通常の投票のみ）
+    form: form
+
+  - name: correct_option_id
+    type: number
+    required: false
+    label:
+      en_US: Correct Option ID
+      ru_RU: ID правильного варианта
+      bn_BD: সঠিক অপশন আইডি
+      zh_Hans: 正确选项 ID
+      ja_JP: 正解の選択肢 ID
+    human_description:
+      en_US: 0-based index of correct answer (required for quiz type)
+      ru_RU: Индекс правильного ответа с нуля (обязательно для викторины)
+      bn_BD: সঠিক উত্তরের ০-ভিত্তিক সূচক (কুইজ টাইপের জন্য প্রয়োজনীয়)
+      zh_Hans: 正确答案的基于 0 的索引（测验类型必需）
+      ja_JP: 正解のインデックス（0 ベース、クイズタイプに必要）
+    form: form
+
+  - name: explanation
+    type: string
+    required: false
+    label:
+      en_US: Explanation
+      ru_RU: Объяснение
+      bn_BD: ব্যাখ্যা
+      zh_Hans: 解释
+      ja_JP: 説明
+    human_description:
+      en_US: Text shown when user chooses incorrect option in quiz (0-200 chars)
+      ru_RU: Текст, показываемый при выборе неправильного варианта в викторине (0-200 символов)
+      bn_BD: কুইজে ভুল অপশন নির্বাচন করলে দেখানো টেক্সট (০-২০০ অক্ষর)
+      zh_Hans: 用户在测验中选择错误选项时显示的文本（0-200 个字符）
+      ja_JP: クイズで誤った選択肢を選んだ時に表示されるテキスト（0-200 文字）
+    form: form
+
+  - name: open_period
+    type: number
+    required: false
+    label:
+      en_US: Open Period (seconds)
+      ru_RU: Период открытия (секунды)
+      bn_BD: খোলা সময়কাল (সেকেন্ড)
+      zh_Hans: 开放时长（秒）
+      ja_JP: 開催期間（秒）
+    human_description:
+      en_US: Amount of time poll will be active (5-600 seconds)
+      ru_RU: Время активности опроса (5-600 секунд)
+      bn_BD: পোল সক্রিয় থাকার সময় (৫-৬০০ সেকেন্ড)
+      zh_Hans: 投票的活动时间（5-600 秒）
+      ja_JP: 投票が有効な時間（5-600 秒）
+    form: form
+
+extra:
+  python:
+    source: tools/send_poll.py
