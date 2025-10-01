@@ -1,0 +1,40 @@
+identity:
+  name: delete_webhook
+  author: shamspias
+  label:
+    en_US: Delete Webhook
+    ru_RU: Удалить webhook
+    bn_BD: Webhook মুছুন
+    zh_Hans: 删除 Webhook
+    ja_JP: Webhook を削除
+description:
+  human:
+    en_US: Remove webhook integration
+    ru_RU: Удалить интеграцию webhook
+    bn_BD: Webhook ইন্টিগ্রেশন সরান
+    zh_Hans: 移除 Webhook 集成
+    ja_JP: Webhook 統合を削除
+  llm: Delete webhook and switch to getUpdates method
+
+parameters:
+  - name: drop_pending_updates
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Drop Pending Updates
+      ru_RU: Удалить ожидающие обновления
+      bn_BD: অপেক্ষমাণ আপডেট মুছুন
+      zh_Hans: 丢弃待处理的更新
+      ja_JP: 保留中の更新を破棄
+    human_description:
+      en_US: Pass True to drop all pending updates
+      ru_RU: Передайте True для удаления всех ожидающих обновлений
+      bn_BD: সব অপেক্ষমাণ আপডেট মুছতে True দিন
+      zh_Hans: 传递 True 以丢弃所有待处理的更新
+      ja_JP: すべての保留中の更新を破棄するには True を渡します
+    form: form
+
+extra:
+  python:
+    source: tools/delete_webhook.py
