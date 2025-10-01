@@ -1,0 +1,103 @@
+identity:
+  name: create_chat_invite_link
+  author: shamspias
+  label:
+    en_US: Create Chat Invite Link
+    ru_RU: Создать ссылку-приглашение
+    bn_BD: চ্যাট আমন্ত্রণ লিঙ্ক তৈরি করুন
+    zh_Hans: 创建聊天邀请链接
+    ja_JP: チャット招待リンクを作成
+description:
+  human:
+    en_US: Create an additional invite link for a chat
+    ru_RU: Создать дополнительную ссылку-приглашение для чата
+    bn_BD: একটি চ্যাটের জন্য একটি অতিরিক্ত আমন্ত্রণ লিঙ্ক তৈরি করুন
+    zh_Hans: 为聊天创建额外的邀请链接
+    ja_JP: チャットの追加招待リンクを作成
+  llm: Create additional invite link with optional expiration date and member limit
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    llm_description: Chat ID
+    form: llm
+
+  - name: name
+    type: string
+    required: false
+    label:
+      en_US: Link Name
+      ru_RU: Название ссылки
+      bn_BD: লিঙ্কের নাম
+      zh_Hans: 链接名称
+      ja_JP: リンク名
+    human_description:
+      en_US: Invite link name (0-32 characters)
+      ru_RU: Название ссылки-приглашения (0-32 символа)
+      bn_BD: আমন্ত্রণ লিঙ্কের নাম (০-৩২ অক্ষর)
+      zh_Hans: 邀请链接名称（0-32 个字符）
+      ja_JP: 招待リンク名（0-32 文字）
+    form: form
+
+  - name: expire_date
+    type: number
+    required: false
+    label:
+      en_US: Expire Date (Unix timestamp)
+      ru_RU: Дата истечения (Unix timestamp)
+      bn_BD: মেয়াদ শেষের তারিখ (Unix timestamp)
+      zh_Hans: 过期日期（Unix 时间戳）
+      ja_JP: 有効期限（Unix タイムスタンプ）
+    human_description:
+      en_US: Date when the link will expire
+      ru_RU: Дата истечения срока действия ссылки
+      bn_BD: লিঙ্কের মেয়াদ শেষ হওয়ার তারিখ
+      zh_Hans: 链接过期的日期
+      ja_JP: リンクが期限切れになる日付
+    form: form
+
+  - name: member_limit
+    type: number
+    required: false
+    label:
+      en_US: Member Limit
+      ru_RU: Лимит участников
+      bn_BD: সদস্য সীমা
+      zh_Hans: 成员限制
+      ja_JP: メンバー制限
+    human_description:
+      en_US: Maximum number of users that can join using this link (1-99999)
+      ru_RU: Максимальное количество пользователей, которые могут присоединиться по этой ссылке (1-99999)
+      bn_BD: এই লিঙ্ক ব্যবহার করে যোগদান করতে পারে এমন সর্বাধিক ব্যবহারকারী সংখ্যা (১-৯৯৯৯৯)
+      zh_Hans: 可以使用此链接加入的最大用户数（1-99999）
+      ja_JP: このリンクで参加できる最大ユーザー数（1-99999）
+    form: form
+
+  - name: creates_join_request
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Creates Join Request
+      ru_RU: Создает запрос на вступление
+      bn_BD: যোগদানের অনুরোধ তৈরি করে
+      zh_Hans: 创建加入请求
+      ja_JP: 参加リクエストを作成
+    human_description:
+      en_US: True if users joining via link need to be approved by admins
+      ru_RU: True, если пользователи, присоединяющиеся по ссылке, должны быть одобрены администраторами
+      bn_BD: লিঙ্কের মাধ্যমে যোগদান করা ব্যবহারকারীদের অ্যাডমিনদের দ্বারা অনুমোদিত হতে হলে True
+      zh_Hans: 如果通过链接加入的用户需要管理员批准，则为 True
+      ja_JP: リンク経由で参加するユーザーが管理者の承認を必要とする場合は True
+    form: form
+
+extra:
+  python:
+    source: tools/create_chat_invite_link.py
