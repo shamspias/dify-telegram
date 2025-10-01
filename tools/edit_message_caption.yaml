@@ -1,0 +1,86 @@
+identity:
+  name: edit_message_caption
+  author: shamspias
+  label:
+    en_US: Edit Message Caption
+    ru_RU: Изменить подпись сообщения
+    bn_BD: বার্তা ক্যাপশন সম্পাদনা করুন
+    zh_Hans: 编辑消息标题
+    ja_JP: メッセージキャプションを編集
+description:
+  human:
+    en_US: Edit caption of media messages
+    ru_RU: Изменить подпись медиа сообщений
+    bn_BD: মিডিয়া বার্তার ক্যাপশন সম্পাদনা করুন
+    zh_Hans: 编辑媒体消息的标题
+    ja_JP: メディアメッセージのキャプションを編集
+  llm: Edit caption of photo, video, animation, audio, document, or voice messages
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    llm_description: Chat ID where message is located
+    form: llm
+
+  - name: message_id
+    type: number
+    required: true
+    label:
+      en_US: Message ID
+      ru_RU: ID сообщения
+      bn_BD: বার্তা আইডি
+      zh_Hans: 消息 ID
+      ja_JP: メッセージ ID
+    llm_description: Message ID to edit
+    form: llm
+
+  - name: caption
+    type: string
+    required: false
+    label:
+      en_US: New Caption
+      ru_RU: Новая подпись
+      bn_BD: নতুন ক্যাপশন
+      zh_Hans: 新标题
+      ja_JP: 新しいキャプション
+    human_description:
+      en_US: New caption (0-1024 characters)
+      ru_RU: Новая подпись (0-1024 символа)
+      bn_BD: নতুন ক্যাপশন (০-১০২৪ অক্ষর)
+      zh_Hans: 新标题（0-1024 个字符）
+      ja_JP: 新しいキャプション（0-1024 文字）
+    llm_description: New caption text
+    form: llm
+
+  - name: parse_mode
+    type: select
+    required: false
+    default: ""
+    options:
+      - value: ""
+        label:
+          en_US: None
+      - value: "Markdown"
+        label:
+          en_US: Markdown
+      - value: "HTML"
+        label:
+          en_US: HTML
+    label:
+      en_US: Parse Mode
+      ru_RU: Режим разбора
+      bn_BD: পার্স মোড
+      zh_Hans: 解析模式
+      ja_JP: パースモード
+    form: form
+
+extra:
+  python:
+    source: tools/edit_message_caption.py
