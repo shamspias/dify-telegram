@@ -1,0 +1,139 @@
+identity:
+  name: copy_message
+  author: shamspias
+  label:
+    en_US: Copy Message
+    ru_RU: Копировать сообщение
+    bn_BD: বার্তা কপি করুন
+    zh_Hans: 复制消息
+    ja_JP: メッセージをコピー
+description:
+  human:
+    en_US: Copy a message without forwarding link
+    ru_RU: Копировать сообщение без ссылки на оригинал
+    bn_BD: ফরওয়ার্ড লিঙ্ক ছাড়া বার্তা কপি করুন
+    zh_Hans: 复制消息而不转发链接
+    ja_JP: 転送リンクなしでメッセージをコピー
+  llm: Copy messages between chats without showing original sender
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: To Chat ID
+      ru_RU: ID целевого чата
+      bn_BD: লক্ষ্য চ্যাট আইডি
+      zh_Hans: 目标聊天 ID
+      ja_JP: 宛先チャット ID
+    human_description:
+      en_US: Chat ID where to copy the message
+      ru_RU: ID чата, куда скопировать сообщение
+      bn_BD: যে চ্যাটে বার্তা কপি করতে হবে তার আইডি
+      zh_Hans: 复制消息的目标聊天 ID
+      ja_JP: メッセージをコピーする先のチャット ID
+    llm_description: Destination chat ID
+    form: llm
+
+  - name: from_chat_id
+    type: string
+    required: true
+    label:
+      en_US: From Chat ID
+      ru_RU: ID исходного чата
+      bn_BD: উৎস চ্যাট আইডি
+      zh_Hans: 源聊天 ID
+      ja_JP: 元のチャット ID
+    human_description:
+      en_US: Chat ID where the original message is
+      ru_RU: ID чата с исходным сообщением
+      bn_BD: যে চ্যাটে মূল বার্তা রয়েছে তার আইডি
+      zh_Hans: 原始消息所在的聊天 ID
+      ja_JP: 元のメッセージがあるチャット ID
+    llm_description: Source chat ID
+    form: llm
+
+  - name: message_id
+    type: number
+    required: true
+    label:
+      en_US: Message ID
+      ru_RU: ID сообщения
+      bn_BD: বার্তা আইডি
+      zh_Hans: 消息 ID
+      ja_JP: メッセージ ID
+    human_description:
+      en_US: ID of the message to copy
+      ru_RU: ID сообщения для копирования
+      bn_BD: কপি করার বার্তার আইডি
+      zh_Hans: 要复制的消息 ID
+      ja_JP: コピーするメッセージの ID
+    llm_description: Message ID to copy
+    form: llm
+
+  - name: caption
+    type: string
+    required: false
+    label:
+      en_US: New Caption
+      ru_RU: Новая подпись
+      bn_BD: নতুন ক্যাপশন
+      zh_Hans: 新标题
+      ja_JP: 新しいキャプション
+    human_description:
+      en_US: New caption for the message (replaces original)
+      ru_RU: Новая подпись для сообщения (заменяет оригинал)
+      bn_BD: বার্তার জন্য নতুন ক্যাপশন (মূল প্রতিস্থাপন করে)
+      zh_Hans: 消息的新标题（替换原始标题）
+      ja_JP: メッセージの新しいキャプション（元のものを置き換える）
+    form: form
+
+  - name: parse_mode
+    type: select
+    required: false
+    default: ""
+    options:
+      - value: ""
+        label:
+          en_US: None
+      - value: "Markdown"
+        label:
+          en_US: Markdown
+      - value: "HTML"
+        label:
+          en_US: HTML
+    label:
+      en_US: Parse Mode
+      ru_RU: Режим разбора
+      bn_BD: পার্স মোড
+      zh_Hans: 解析模式
+      ja_JP: パースモード
+    form: form
+
+  - name: disable_notification
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Silent Mode
+      ru_RU: Тихий режим
+      bn_BD: নীরব মোড
+      zh_Hans: 静音模式
+      ja_JP: サイレントモード
+    form: form
+
+  - name: protect_content
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Protect Content
+      ru_RU: Защитить контент
+      bn_BD: কন্টেন্ট সুরক্ষিত করুন
+      zh_Hans: 保护内容
+      ja_JP: コンテンツを保護
+    form: form
+
+extra:
+  python:
+    source: tools/copy_message.py
