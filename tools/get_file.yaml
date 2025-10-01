@@ -1,0 +1,40 @@
+identity:
+  name: get_file
+  author: shamspias
+  label:
+    en_US: Get File
+    ru_RU: Получить файл
+    bn_BD: ফাইল পান
+    zh_Hans: 获取文件
+    ja_JP: ファイルを取得
+description:
+  human:
+    en_US: Get basic info about a file and prepare it for downloading
+    ru_RU: Получить базовую информацию о файле и подготовить его к загрузке
+    bn_BD: একটি ফাইল সম্পর্কে মৌলিক তথ্য পান এবং ডাউনলোডের জন্য প্রস্তুত করুন
+    zh_Hans: 获取文件的基本信息并准备下载
+    ja_JP: ファイルの基本情報を取得してダウンロードの準備をする
+  llm: Retrieve file information and download path by file_id
+
+parameters:
+  - name: file_id
+    type: string
+    required: true
+    label:
+      en_US: File ID
+      ru_RU: ID файла
+      bn_BD: ফাইল আইডি
+      zh_Hans: 文件 ID
+      ja_JP: ファイル ID
+    human_description:
+      en_US: File identifier to get info about
+      ru_RU: Идентификатор файла для получения информации
+      bn_BD: তথ্য পাওয়ার জন্য ফাইল শনাক্তকারী
+      zh_Hans: 要获取信息的文件标识符
+      ja_JP: 情報を取得するファイル識別子
+    llm_description: Telegram file_id
+    form: llm
+
+extra:
+  python:
+    source: tools/get_file.py
