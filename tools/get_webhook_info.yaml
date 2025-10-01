@@ -1,0 +1,23 @@
+identity:
+  name: get_webhook_info
+  author: shamspias
+  label:
+    en_US: Get Webhook Info
+    ru_RU: Получить информацию о webhook
+    bn_BD: Webhook তথ্য পান
+    zh_Hans: 获取 Webhook 信息
+    ja_JP: Webhook 情報を取得
+description:
+  human:
+    en_US: Get current webhook status
+    ru_RU: Получить текущий статус webhook
+    bn_BD: বর্তমান webhook স্ট্যাটাস পান
+    zh_Hans: 获取当前 Webhook 状态
+    ja_JP: 現在の Webhook ステータスを取得
+  llm: Retrieve webhook configuration and status information
+
+parameters: [ ]
+
+extra:
+  python:
+    source: tools/get_webhook_info.py
