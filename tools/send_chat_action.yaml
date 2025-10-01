@@ -1,0 +1,91 @@
+identity:
+  name: send_chat_action
+  author: shamspias
+  label:
+    en_US: Send Chat Action
+    ru_RU: Отправить действие в чате
+    bn_BD: চ্যাট অ্যাকশন পাঠান
+    zh_Hans: 发送聊天操作
+    ja_JP: チャットアクションを送信
+description:
+  human:
+    en_US: Send typing or upload indicators
+    ru_RU: Отправить индикаторы набора текста или загрузки
+    bn_BD: টাইপিং বা আপলোড সূচক পাঠান
+    zh_Hans: 发送打字或上传指示器
+    ja_JP: タイピングまたはアップロード表示を送信
+  llm: Show typing, uploading, recording or other action indicators in chat
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    human_description:
+      en_US: Unique identifier for the target chat
+      ru_RU: Уникальный идентификатор целевого чата
+      bn_BD: লক্ষ্য চ্যাটের অনন্য শনাক্তকারী
+      zh_Hans: 目标聊天的唯一标识符
+      ja_JP: 対象チャットの一意の識別子
+    llm_description: Target chat ID
+    form: llm
+
+  - name: action
+    type: select
+    required: true
+    options:
+      - value: "typing"
+        label:
+          en_US: Typing
+      - value: "upload_photo"
+        label:
+          en_US: Uploading Photo
+      - value: "record_video"
+        label:
+          en_US: Recording Video
+      - value: "upload_video"
+        label:
+          en_US: Uploading Video
+      - value: "record_voice"
+        label:
+          en_US: Recording Voice
+      - value: "upload_voice"
+        label:
+          en_US: Uploading Voice
+      - value: "upload_document"
+        label:
+          en_US: Uploading Document
+      - value: "choose_sticker"
+        label:
+          en_US: Choosing Sticker
+      - value: "find_location"
+        label:
+          en_US: Finding Location
+      - value: "record_video_note"
+        label:
+          en_US: Recording Video Note
+      - value: "upload_video_note"
+        label:
+          en_US: Uploading Video Note
+    label:
+      en_US: Action Type
+      ru_RU: Тип действия
+      bn_BD: অ্যাকশন টাইপ
+      zh_Hans: 操作类型
+      ja_JP: アクションタイプ
+    human_description:
+      en_US: Type of action to broadcast
+      ru_RU: Тип действия для трансляции
+      bn_BD: সম্প্রচারের জন্য অ্যাকশনের ধরন
+      zh_Hans: 要广播的操作类型
+      ja_JP: ブロードキャストするアクションのタイプ
+    form: form
+
+extra:
+  python:
+    source: tools/send_chat_action.py
