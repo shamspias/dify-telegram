@@ -1,0 +1,40 @@
+identity:
+  name: leave_chat
+  author: shamspias
+  label:
+    en_US: Leave Chat
+    ru_RU: Покинуть чат
+    bn_BD: চ্যাট ছেড়ে যান
+    zh_Hans: 离开聊天
+    ja_JP: チャットを退出
+description:
+  human:
+    en_US: Make the bot leave a group, supergroup or channel
+    ru_RU: Заставить бота покинуть группу, супергруппу или канал
+    bn_BD: বটকে একটি গ্রুপ, সুপারগ্রুপ বা চ্যানেল ছেড়ে যেতে দিন
+    zh_Hans: 让机器人离开群组、超级群组或频道
+    ja_JP: ボットをグループ、スーパーグループ、またはチャンネルから退出させる
+  llm: Remove bot from a chat
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    human_description:
+      en_US: Unique identifier for the chat to leave
+      ru_RU: Уникальный идентификатор чата для выхода
+      bn_BD: ছেড়ে যাওয়ার জন্য চ্যাটের অনন্য শনাক্তকারী
+      zh_Hans: 要离开的聊天的唯一标识符
+      ja_JP: 退出するチャットの一意の識別子
+    llm_description: Chat ID to leave
+    form: llm
+
+extra:
+  python:
+    source: tools/leave_chat.py
