@@ -1,0 +1,34 @@
+identity:
+  name: get_chat_members_count
+  author: shamspias
+  label:
+    en_US: Get Chat Members Count
+    ru_RU: Получить количество участников
+    bn_BD: চ্যাট সদস্য সংখ্যা পান
+    zh_Hans: 获取聊天成员数量
+    ja_JP: チャットメンバー数を取得
+description:
+  human:
+    en_US: Get the number of members in a chat
+    ru_RU: Получить количество участников в чате
+    bn_BD: একটি চ্যাটের সদস্য সংখ্যা পান
+    zh_Hans: 获取聊天中的成员数量
+    ja_JP: チャット内のメンバー数を取得
+  llm: Retrieve total member count for a group, supergroup, or channel
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    llm_description: Chat ID to get member count
+    form: llm
+
+extra:
+  python:
+    source: tools/get_chat_members_count.py
