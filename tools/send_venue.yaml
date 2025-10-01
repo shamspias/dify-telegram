@@ -1,0 +1,128 @@
+identity:
+  name: send_venue
+  author: shamspias
+  label:
+    en_US: Send Venue
+    ru_RU: Отправить место
+    bn_BD: ভেন্যু পাঠান
+    zh_Hans: 发送地点
+    ja_JP: 場所を送信
+description:
+  human:
+    en_US: Send information about a venue
+    ru_RU: Отправить информацию о месте
+    bn_BD: একটি ভেন্যু সম্পর্কে তথ্য পাঠান
+    zh_Hans: 发送地点信息
+    ja_JP: 場所の情報を送信
+  llm: Send venue information with location, title, and address
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    llm_description: Target chat ID
+    form: llm
+
+  - name: latitude
+    type: number
+    required: true
+    label:
+      en_US: Latitude
+      ru_RU: Широта
+      bn_BD: অক্ষাংশ
+      zh_Hans: 纬度
+      ja_JP: 緯度
+    llm_description: Venue latitude
+    form: llm
+
+  - name: longitude
+    type: number
+    required: true
+    label:
+      en_US: Longitude
+      ru_RU: Долгота
+      bn_BD: দ্রাঘিমাংশ
+      zh_Hans: 经度
+      ja_JP: 経度
+    llm_description: Venue longitude
+    form: llm
+
+  - name: title
+    type: string
+    required: true
+    label:
+      en_US: Title
+      ru_RU: Название
+      bn_BD: শিরোনাম
+      zh_Hans: 标题
+      ja_JP: タイトル
+    human_description:
+      en_US: Name of the venue
+      ru_RU: Название места
+      bn_BD: ভেন্যুর নাম
+      zh_Hans: 地点名称
+      ja_JP: 場所の名前
+    llm_description: Venue name
+    form: llm
+
+  - name: address
+    type: string
+    required: true
+    label:
+      en_US: Address
+      ru_RU: Адрес
+      bn_BD: ঠিকানা
+      zh_Hans: 地址
+      ja_JP: 住所
+    human_description:
+      en_US: Address of the venue
+      ru_RU: Адрес места
+      bn_BD: ভেন্যুর ঠিকানা
+      zh_Hans: 地点地址
+      ja_JP: 場所の住所
+    llm_description: Venue address
+    form: llm
+
+  - name: foursquare_id
+    type: string
+    required: false
+    label:
+      en_US: Foursquare ID
+      ru_RU: Foursquare ID
+      bn_BD: Foursquare আইডি
+      zh_Hans: Foursquare ID
+      ja_JP: Foursquare ID
+    form: form
+
+  - name: foursquare_type
+    type: string
+    required: false
+    label:
+      en_US: Foursquare Type
+      ru_RU: Тип Foursquare
+      bn_BD: Foursquare টাইপ
+      zh_Hans: Foursquare 类型
+      ja_JP: Foursquare タイプ
+    form: form
+
+  - name: disable_notification
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Silent Mode
+      ru_RU: Тихий режим
+      bn_BD: নীরব মোড
+      zh_Hans: 静音模式
+      ja_JP: サイレントモード
+    form: form
+
+extra:
+  python:
+    source: tools/send_venue.py

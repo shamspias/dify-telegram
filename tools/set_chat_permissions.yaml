@@ -1,0 +1,130 @@
+identity:
+  name: set_chat_permissions
+  author: shamspias
+  label:
+    en_US: Set Chat Permissions
+    ru_RU: Установить разрешения чата
+    bn_BD: চ্যাট অনুমতি সেট করুন
+    zh_Hans: 设置聊天权限
+    ja_JP: チャット権限を設定
+description:
+  human:
+    en_US: Set default chat permissions for all members
+    ru_RU: Установить разрешения чата по умолчанию для всех участников
+    bn_BD: সব সদস্যের জন্য ডিফল্ট চ্যাট অনুমতি সেট করুন
+    zh_Hans: 为所有成员设置默认聊天权限
+    ja_JP: すべてのメンバーのデフォルトチャット権限を設定
+  llm: Configure default permissions for all non-administrator members
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    llm_description: Chat ID
+    form: llm
+
+  - name: can_send_messages
+    type: boolean
+    required: false
+    default: true
+    label:
+      en_US: Can Send Messages
+      ru_RU: Может отправлять сообщения
+      bn_BD: বার্তা পাঠাতে পারে
+      zh_Hans: 可以发送消息
+      ja_JP: メッセージを送信できる
+    form: form
+
+  - name: can_send_media_messages
+    type: boolean
+    required: false
+    default: true
+    label:
+      en_US: Can Send Media
+      ru_RU: Может отправлять медиа
+      bn_BD: মিডিয়া পাঠাতে পারে
+      zh_Hans: 可以发送媒体
+      ja_JP: メディアを送信できる
+    form: form
+
+  - name: can_send_polls
+    type: boolean
+    required: false
+    default: true
+    label:
+      en_US: Can Send Polls
+      ru_RU: Может отправлять опросы
+      bn_BD: পোল পাঠাতে পারে
+      zh_Hans: 可以发送投票
+      ja_JP: 投票を送信できる
+    form: form
+
+  - name: can_send_other_messages
+    type: boolean
+    required: false
+    default: true
+    label:
+      en_US: Can Send Other Messages
+      ru_RU: Может отправлять другие сообщения
+      bn_BD: অন্যান্য বার্তা পাঠাতে পারে
+      zh_Hans: 可以发送其他消息
+      ja_JP: その他のメッセージを送信できる
+    form: form
+
+  - name: can_add_web_page_previews
+    type: boolean
+    required: false
+    default: true
+    label:
+      en_US: Can Add Web Previews
+      ru_RU: Может добавлять веб-превью
+      bn_BD: ওয়েব প্রিভিউ যোগ করতে পারে
+      zh_Hans: 可以添加网页预览
+      ja_JP: ウェブプレビューを追加できる
+    form: form
+
+  - name: can_change_info
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Can Change Info
+      ru_RU: Может изменять информацию
+      bn_BD: তথ্য পরিবর্তন করতে পারে
+      zh_Hans: 可以更改信息
+      ja_JP: 情報を変更できる
+    form: form
+
+  - name: can_invite_users
+    type: boolean
+    required: false
+    default: true
+    label:
+      en_US: Can Invite Users
+      ru_RU: Может приглашать пользователей
+      bn_BD: ব্যবহারকারী আমন্ত্রণ করতে পারে
+      zh_Hans: 可以邀请用户
+      ja_JP: ユーザーを招待できる
+    form: form
+
+  - name: can_pin_messages
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Can Pin Messages
+      ru_RU: Может закреплять сообщения
+      bn_BD: বার্তা পিন করতে পারে
+      zh_Hans: 可以置顶消息
+      ja_JP: メッセージをピン留めできる
+    form: form
+
+extra:
+  python:
+    source: tools/set_chat_permissions.py

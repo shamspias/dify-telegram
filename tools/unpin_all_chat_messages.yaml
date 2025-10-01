@@ -1,0 +1,40 @@
+identity:
+  name: unpin_all_chat_messages
+  author: shamspias
+  label:
+    en_US: Unpin All Chat Messages
+    ru_RU: Открепить все сообщения
+    bn_BD: সব চ্যাট বার্তা আনপিন করুন
+    zh_Hans: 取消置顶所有聊天消息
+    ja_JP: すべてのチャットメッセージのピン留めを解除
+description:
+  human:
+    en_US: Clear the list of pinned messages in a chat
+    ru_RU: Очистить список закрепленных сообщений в чате
+    bn_BD: একটি চ্যাটে পিন করা বার্তার তালিকা সাফ করুন
+    zh_Hans: 清除聊天中的置顶消息列表
+    ja_JP: チャット内のピン留めされたメッセージのリストをクリア
+  llm: Remove all pinned messages from chat
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    human_description:
+      en_US: Unique identifier for the target chat
+      ru_RU: Уникальный идентификатор целевого чата
+      bn_BD: লক্ষ্য চ্যাটের অনন্য শনাক্তকারী
+      zh_Hans: 目标聊天的唯一标识符
+      ja_JP: 対象チャットの一意の識別子
+    llm_description: Chat ID
+    form: llm
+
+extra:
+  python:
+    source: tools/unpin_all_chat_messages.py

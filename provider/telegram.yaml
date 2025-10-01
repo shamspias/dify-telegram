@@ -13,7 +13,7 @@ identity:
     bn_BD: সম্পূর্ণ টেলিগ্রাম বট API ইন্টিগ্রেশন
     zh_Hans: 完整的 Telegram Bot API 集成
     ja_JP: 完全な Telegram Bot API 統合
-  icon: telegram.svg
+  icon: icon.png
 
 credentials_for_provider:
   bot_token:
@@ -40,7 +40,6 @@ credentials_for_provider:
     url: https://core.telegram.org/bots#6-botfather
 
 tools:
-  # Message Operations
   - tools/send_message.yaml
   - tools/forward_message.yaml
   - tools/copy_message.yaml
@@ -51,8 +50,6 @@ tools:
   - tools/unpin_chat_message.yaml
   - tools/unpin_all_chat_messages.yaml
   - tools/send_chat_action.yaml
-  
-  # Media Operations
   - tools/send_photo.yaml
   - tools/send_video.yaml
   - tools/send_audio.yaml
@@ -67,8 +64,6 @@ tools:
   - tools/send_poll.yaml
   - tools/send_dice.yaml
   - tools/send_media_group.yaml
-  
-  # Chat Operations
   - tools/get_chat.yaml
   - tools/get_chat_administrators.yaml
   - tools/get_chat_member.yaml
@@ -86,16 +81,10 @@ tools:
   - tools/create_chat_invite_link.yaml
   - tools/revoke_chat_invite_link.yaml
   - tools/set_chat_permissions.yaml
-  
-  # Callback & Inline
   - tools/answer_callback_query.yaml
   - tools/answer_inline_query.yaml
   - tools/stop_poll.yaml
-  
-  # File Operations
   - tools/get_file.yaml
-  
-  # Webhook Operations
   - tools/set_webhook.yaml
   - tools/delete_webhook.yaml
   - tools/get_webhook_info.yaml

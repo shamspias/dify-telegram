@@ -1,0 +1,52 @@
+identity:
+  name: set_chat_photo
+  author: shamspias
+  label:
+    en_US: Set Chat Photo
+    ru_RU: Установить фото чата
+    bn_BD: চ্যাট ফটো সেট করুন
+    zh_Hans: 设置聊天照片
+    ja_JP: チャット写真を設定
+description:
+  human:
+    en_US: Set a new profile photo for the chat
+    ru_RU: Установить новое фото профиля для чата
+    bn_BD: চ্যাটের জন্য একটি নতুন প্রোফাইল ফটো সেট করুন
+    zh_Hans: 为聊天设置新的个人资料照片
+    ja_JP: チャットの新しいプロフィール写真を設定
+  llm: Upload new photo for group, supergroup, or channel (bot must be administrator)
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    llm_description: Chat ID
+    form: llm
+
+  - name: photo
+    type: string
+    required: true
+    label:
+      en_US: Photo
+      ru_RU: Фото
+      bn_BD: ফটো
+      zh_Hans: 照片
+      ja_JP: 写真
+    human_description:
+      en_US: Photo file path or file_id
+      ru_RU: Путь к файлу фото или file_id
+      bn_BD: ফটো ফাইল পাথ বা file_id
+      zh_Hans: 照片文件路径或 file_id
+      ja_JP: 写真ファイルパスまたは file_id
+    llm_description: Photo file path or file_id
+    form: llm
+
+extra:
+  python:
+    source: tools/set_chat_photo.py

@@ -1,0 +1,64 @@
+identity:
+  name: unban_chat_member
+  author: shamspias
+  label:
+    en_US: Unban Chat Member
+    ru_RU: Разблокировать участника
+    bn_BD: চ্যাট সদস্য আনব্যান করুন
+    zh_Hans: 解禁聊天成员
+    ja_JP: チャットメンバーの禁止を解除
+description:
+  human:
+    en_US: Unban a previously banned user in a supergroup or channel
+    ru_RU: Разблокировать ранее заблокированного пользователя в супергруппе или канале
+    bn_BD: একটি সুপারগ্রুপ বা চ্যানেলে পূর্বে নিষিদ্ধ ব্যবহারকারীকে আনব্যান করুন
+    zh_Hans: 在超级群组或频道中解禁之前被禁止的用户
+    ja_JP: スーパーグループまたはチャンネルで以前に禁止されたユーザーの禁止を解除
+  llm: Lift ban from user (bot must be administrator with can_restrict_members permission)
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    llm_description: Chat ID
+    form: llm
+
+  - name: user_id
+    type: number
+    required: true
+    label:
+      en_US: User ID
+      ru_RU: ID пользователя
+      bn_BD: ব্যবহারকারী আইডি
+      zh_Hans: 用户 ID
+      ja_JP: ユーザー ID
+    llm_description: User ID to unban
+    form: llm
+
+  - name: only_if_banned
+    type: boolean
+    required: false
+    default: true
+    label:
+      en_US: Only If Banned
+      ru_RU: Только если заблокирован
+      bn_BD: শুধুমাত্র যদি নিষিদ্ধ হয়
+      zh_Hans: 仅当被禁止时
+      ja_JP: 禁止されている場合のみ
+    human_description:
+      en_US: Do nothing if user is not banned
+      ru_RU: Ничего не делать, если пользователь не заблокирован
+      bn_BD: ব্যবহারকারী নিষিদ্ধ না হলে কিছু করবেন না
+      zh_Hans: 如果用户未被禁止则不执行操作
+      ja_JP: ユーザーが禁止されていない場合は何もしない
+    form: form
+
+extra:
+  python:
+    source: tools/unban_chat_member.py

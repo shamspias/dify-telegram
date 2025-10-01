@@ -1,0 +1,92 @@
+identity:
+  name: send_video_note
+  author: shamspias
+  label:
+    en_US: Send Video Note
+    ru_RU: Отправить видео-заметку
+    bn_BD: ভিডিও নোট পাঠান
+    zh_Hans: 发送视频笔记
+    ja_JP: ビデオノートを送信
+description:
+  human:
+    en_US: Send round video messages (video notes)
+    ru_RU: Отправить круглые видео сообщения (видео-заметки)
+    bn_BD: গোল ভিডিও মেসেজ পাঠান (ভিডিও নোট)
+    zh_Hans: 发送圆形视频消息（视频笔记）
+    ja_JP: 丸型ビデオメッセージを送信（ビデオノート）
+  llm: Send round video messages (video notes) up to 1 minute long
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    llm_description: Target chat ID
+    form: llm
+
+  - name: video_note
+    type: string
+    required: true
+    label:
+      en_US: Video Note
+      ru_RU: Видео-заметка
+      bn_BD: ভিডিও নোট
+      zh_Hans: 视频笔记
+      ja_JP: ビデオノート
+    human_description:
+      en_US: Video note to send (file_id, URL, or file path)
+      ru_RU: Видео-заметка для отправки (file_id, URL или путь к файлу)
+      bn_BD: পাঠানোর জন্য ভিডিও নোট (file_id, URL, অথবা ফাইল পাথ)
+      zh_Hans: 要发送的视频笔记（file_id、URL 或文件路径）
+      ja_JP: 送信するビデオノート（file_id、URL、またはファイルパス）
+    llm_description: Video note identifier, URL, or file path
+    form: llm
+
+  - name: duration
+    type: number
+    required: false
+    label:
+      en_US: Duration (seconds)
+      ru_RU: Длительность (секунды)
+      bn_BD: সময়কাল (সেকেন্ড)
+      zh_Hans: 时长（秒）
+      ja_JP: 長さ（秒）
+    form: form
+
+  - name: length
+    type: number
+    required: false
+    label:
+      en_US: Length (diameter)
+      ru_RU: Длина (диаметр)
+      bn_BD: দৈর্ঘ্য (ব্যাস)
+      zh_Hans: 长度（直径）
+      ja_JP: 長さ（直径）
+    human_description:
+      en_US: Video width and height (diameter of round video)
+      ru_RU: Ширина и высота видео (диаметр круглого видео)
+      bn_BD: ভিডিও প্রস্থ এবং উচ্চতা (গোল ভিডিওর ব্যাস)
+      zh_Hans: 视频宽度和高度（圆形视频的直径）
+      ja_JP: ビデオの幅と高さ（丸型ビデオの直径）
+    form: form
+
+  - name: disable_notification
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Silent Mode
+      ru_RU: Тихий режим
+      bn_BD: নীরব মোড
+      zh_Hans: 静音模式
+      ja_JP: サイレントモード
+    form: form
+
+extra:
+  python:
+    source: tools/send_video_note.py

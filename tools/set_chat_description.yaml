@@ -1,0 +1,52 @@
+identity:
+  name: set_chat_description
+  author: shamspias
+  label:
+    en_US: Set Chat Description
+    ru_RU: Установить описание чата
+    bn_BD: চ্যাট বর্ণনা সেট করুন
+    zh_Hans: 设置聊天描述
+    ja_JP: チャット説明を設定
+description:
+  human:
+    en_US: Change the description of a group, supergroup or channel
+    ru_RU: Изменить описание группы, супергруппы или канала
+    bn_BD: একটি গ্রুপ, সুপারগ্রুপ বা চ্যানেলের বর্ণনা পরিবর্তন করুন
+    zh_Hans: 更改群组、超级群组或频道的描述
+    ja_JP: グループ、スーパーグループ、またはチャンネルの説明を変更
+  llm: Update chat description (bot must be administrator with can_change_info permission)
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    llm_description: Chat ID
+    form: llm
+
+  - name: description
+    type: string
+    required: false
+    label:
+      en_US: Description
+      ru_RU: Описание
+      bn_BD: বর্ণনা
+      zh_Hans: 描述
+      ja_JP: 説明
+    human_description:
+      en_US: New chat description (0-255 characters)
+      ru_RU: Новое описание чата (0-255 символов)
+      bn_BD: নতুন চ্যাট বর্ণনা (০-২৫৫ অক্ষর)
+      zh_Hans: 新的聊天描述（0-255 个字符）
+      ja_JP: 新しいチャット説明（0-255 文字）
+    llm_description: New description text
+    form: llm
+
+extra:
+  python:
+    source: tools/set_chat_description.py
