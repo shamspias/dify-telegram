@@ -1,0 +1,40 @@
+identity:
+  name: export_chat_invite_link
+  author: shamspias
+  label:
+    en_US: Export Chat Invite Link
+    ru_RU: Экспортировать ссылку-приглашение
+    bn_BD: চ্যাট আমন্ত্রণ লিঙ্ক এক্সপোর্ট করুন
+    zh_Hans: 导出聊天邀请链接
+    ja_JP: チャット招待リンクをエクスポート
+description:
+  human:
+    en_US: Generate a new primary invite link for a chat
+    ru_RU: Сгенерировать новую основную ссылку-приглашение для чата
+    bn_BD: একটি চ্যাটের জন্য একটি নতুন প্রাথমিক আমন্ত্রণ লিঙ্ক তৈরি করুন
+    zh_Hans: 为聊天生成新的主邀请链接
+    ja_JP: チャットの新しいプライマリ招待リンクを生成
+  llm: Generate new primary invite link (revokes old one)
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    human_description:
+      en_US: Unique identifier for the target chat
+      ru_RU: Уникальный идентификатор целевого чата
+      bn_BD: লক্ষ্য চ্যাটের অনন্য শনাক্তকারী
+      zh_Hans: 目标聊天的唯一标识符
+      ja_JP: 対象チャットの一意の識別子
+    llm_description: Chat ID
+    form: llm
+
+extra:
+  python:
+    source: tools/export_chat_invite_link.py
