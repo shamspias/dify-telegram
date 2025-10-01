@@ -1,0 +1,89 @@
+identity:
+  name: send_dice
+  author: shamspias
+  label:
+    en_US: Send Dice
+    ru_RU: Отправить кубик
+    bn_BD: ডাইস পাঠান
+    zh_Hans: 发送骰子
+    ja_JP: サイコロを送信
+description:
+  human:
+    en_US: Send dice, darts, basketball, football, bowling, or slot machine
+    ru_RU: Отправить кубик, дартс, баскетбол, футбол, боулинг или игровой автомат
+    bn_BD: ডাইস, ডার্টস, বাস্কেটবল, ফুটবল, বোলিং, বা স্লট মেশিন পাঠান
+    zh_Hans: 发送骰子、飞镖、篮球、足球、保龄球或老虎机
+    ja_JP: サイコロ、ダーツ、バスケットボール、サッカー、ボウリング、またはスロットマシンを送信
+  llm: Send animated emoji with random value (dice, darts, basketball, football, bowling, slot machine)
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    human_description:
+      en_US: Unique identifier for the target chat
+      ru_RU: Уникальный идентификатор целевого чата
+      bn_BD: লক্ষ্য চ্যাটের অনন্য শনাক্তকারী
+      zh_Hans: 目标聊天的唯一标识符
+      ja_JP: 対象チャットの一意の識別子
+    llm_description: Target chat ID
+    form: llm
+
+  - name: emoji
+    type: select
+    required: false
+    default: "🎲"
+    options:
+      - value: "🎲"
+        label:
+          en_US: 🎲 Dice
+      - value: "🎯"
+        label:
+          en_US: 🎯 Darts
+      - value: "🏀"
+        label:
+          en_US: 🏀 Basketball
+      - value: "⚽"
+        label:
+          en_US: ⚽ Football
+      - value: "🎳"
+        label:
+          en_US: 🎳 Bowling
+      - value: "🎰"
+        label:
+          en_US: 🎰 Slot Machine
+    label:
+      en_US: Emoji Type
+      ru_RU: Тип эмодзи
+      bn_BD: ইমোজি টাইপ
+      zh_Hans: 表情符号类型
+      ja_JP: 絵文字タイプ
+    human_description:
+      en_US: Type of animated emoji to send
+      ru_RU: Тип анимированного эмодзи для отправки
+      bn_BD: পাঠানোর জন্য অ্যানিমেটেড ইমোজির ধরন
+      zh_Hans: 要发送的动画表情符号类型
+      ja_JP: 送信するアニメーション絵文字のタイプ
+    form: form
+
+  - name: disable_notification
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Silent Mode
+      ru_RU: Тихий режим
+      bn_BD: নীরব মোড
+      zh_Hans: 静音模式
+      ja_JP: サイレントモード
+    form: form
+
+extra:
+  python:
+    source: tools/send_dice.py
