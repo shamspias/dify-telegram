@@ -1,0 +1,154 @@
+identity:
+  name: promote_chat_member
+  author: shamspias
+  label:
+    en_US: Promote Chat Member
+    ru_RU: Повысить участника
+    bn_BD: চ্যাট সদস্য প্রমোট করুন
+    zh_Hans: 提升聊天成员
+    ja_JP: チャットメンバーを昇格
+description:
+  human:
+    en_US: Promote or demote a user in a supergroup or channel
+    ru_RU: Повысить или понизить пользователя в супергруппе или канале
+    bn_BD: একটি সুপারগ্রুপ বা চ্যানেলে ব্যবহারকারীকে প্রমোট বা ডিমোট করুন
+    zh_Hans: 在超级群组或频道中提升或降级用户
+    ja_JP: スーパーグループまたはチャンネルでユーザーを昇格または降格
+  llm: Promote user to administrator or change admin permissions
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    llm_description: Chat ID
+    form: llm
+
+  - name: user_id
+    type: number
+    required: true
+    label:
+      en_US: User ID
+      ru_RU: ID пользователя
+      bn_BD: ব্যবহারকারী আইডি
+      zh_Hans: 用户 ID
+      ja_JP: ユーザー ID
+    llm_description: User ID to promote
+    form: llm
+
+  - name: is_anonymous
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Is Anonymous
+      ru_RU: Анонимный
+      bn_BD: বেনামী
+      zh_Hans: 匿名
+      ja_JP: 匿名
+    form: form
+
+  - name: can_manage_chat
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Can Manage Chat
+      ru_RU: Может управлять чатом
+      bn_BD: চ্যাট পরিচালনা করতে পারে
+      zh_Hans: 可以管理聊天
+      ja_JP: チャットを管理できる
+    form: form
+
+  - name: can_delete_messages
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Can Delete Messages
+      ru_RU: Может удалять сообщения
+      bn_BD: বার্তা মুছতে পারে
+      zh_Hans: 可以删除消息
+      ja_JP: メッセージを削除できる
+    form: form
+
+  - name: can_manage_video_chats
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Can Manage Video Chats
+      ru_RU: Может управлять видеочатами
+      bn_BD: ভিডিও চ্যাট পরিচালনা করতে পারে
+      zh_Hans: 可以管理视频聊天
+      ja_JP: ビデオチャットを管理できる
+    form: form
+
+  - name: can_restrict_members
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Can Restrict Members
+      ru_RU: Может ограничивать участников
+      bn_BD: সদস্য সীমাবদ্ধ করতে পারে
+      zh_Hans: 可以限制成员
+      ja_JP: メンバーを制限できる
+    form: form
+
+  - name: can_promote_members
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Can Promote Members
+      ru_RU: Может повышать участников
+      bn_BD: সদস্য প্রমোট করতে পারে
+      zh_Hans: 可以提升成员
+      ja_JP: メンバーを昇格できる
+    form: form
+
+  - name: can_change_info
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Can Change Info
+      ru_RU: Может изменять информацию
+      bn_BD: তথ্য পরিবর্তন করতে পারে
+      zh_Hans: 可以更改信息
+      ja_JP: 情報を変更できる
+    form: form
+
+  - name: can_invite_users
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Can Invite Users
+      ru_RU: Может приглашать пользователей
+      bn_BD: ব্যবহারকারী আমন্ত্রণ করতে পারে
+      zh_Hans: 可以邀请用户
+      ja_JP: ユーザーを招待できる
+    form: form
+
+  - name: can_pin_messages
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Can Pin Messages
+      ru_RU: Может закреплять сообщения
+      bn_BD: বার্তা পিন করতে পারে
+      zh_Hans: 可以置顶消息
+      ja_JP: メッセージをピン留めできる
+    form: form
+
+extra:
+  python:
+    source: tools/promote_chat_member.py
