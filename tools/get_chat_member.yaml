@@ -1,0 +1,52 @@
+identity:
+  name: get_chat_member
+  author: shamspias
+  label:
+    en_US: Get Chat Member
+    ru_RU: Получить участника чата
+    bn_BD: চ্যাট সদস্য পান
+    zh_Hans: 获取聊天成员
+    ja_JP: チャットメンバーを取得
+description:
+  human:
+    en_US: Get information about a member of a chat
+    ru_RU: Получить информацию об участнике чата
+    bn_BD: একটি চ্যাটের সদস্য সম্পর্কে তথ্য পান
+    zh_Hans: 获取聊天成员的信息
+    ja_JP: チャットメンバーの情報を取得
+  llm: Retrieve detailed information about a specific chat member including their status and permissions
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    llm_description: Chat ID
+    form: llm
+
+  - name: user_id
+    type: number
+    required: true
+    label:
+      en_US: User ID
+      ru_RU: ID пользователя
+      bn_BD: ব্যবহারকারী আইডি
+      zh_Hans: 用户 ID
+      ja_JP: ユーザー ID
+    human_description:
+      en_US: Unique identifier of the target user
+      ru_RU: Уникальный идентификатор целевого пользователя
+      bn_BD: লক্ষ্য ব্যবহারকারীর অনন্য শনাক্তকারী
+      zh_Hans: 目标用户的唯一标识符
+      ja_JP: 対象ユーザーの一意の識別子
+    llm_description: User ID to get information about
+    form: llm
+
+extra:
+  python:
+    source: tools/get_chat_member.py
