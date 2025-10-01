@@ -1,0 +1,111 @@
+identity:
+  name: answer_inline_query
+  author: shamspias
+  label:
+    en_US: Answer Inline Query
+    ru_RU: Ответить на inline запрос
+    bn_BD: ইনলাইন কুয়েরির উত্তর দিন
+    zh_Hans: 回答内联查询
+    ja_JP: インラインクエリに応答
+description:
+  human:
+    en_US: Send answers for inline queries
+    ru_RU: Отправить ответы на inline запросы
+    bn_BD: ইনলাইন কুয়েরির জন্য উত্তর পাঠান
+    zh_Hans: 发送内联查询的答案
+    ja_JP: インラインクエリの回答を送信
+  llm: Respond to inline queries with array of results
+
+parameters:
+  - name: inline_query_id
+    type: string
+    required: true
+    label:
+      en_US: Inline Query ID
+      ru_RU: ID inline запроса
+      bn_BD: ইনলাইন কুয়েরি আইডি
+      zh_Hans: 内联查询 ID
+      ja_JP: インラインクエリ ID
+    human_description:
+      en_US: Unique identifier for the inline query
+      ru_RU: Уникальный идентификатор inline запроса
+      bn_BD: ইনলাইন কুয়েরির অনন্য শনাক্তকারী
+      zh_Hans: 内联查询的唯一标识符
+      ja_JP: インラインクエリの一意の識別子
+    llm_description: Inline query ID to answer
+    form: llm
+
+  - name: results
+    type: string
+    required: true
+    label:
+      en_US: Results (JSON)
+      ru_RU: Результаты (JSON)
+      bn_BD: ফলাফল (JSON)
+      zh_Hans: 结果 (JSON)
+      ja_JP: 結果 (JSON)
+    human_description:
+      en_US: JSON array of InlineQueryResult objects
+      ru_RU: JSON массив объектов InlineQueryResult
+      bn_BD: InlineQueryResult অবজেক্টের JSON অ্যারে
+      zh_Hans: InlineQueryResult 对象的 JSON 数组
+      ja_JP: InlineQueryResult オブジェクトの JSON 配列
+    llm_description: Array of results to show
+    form: llm
+
+  - name: cache_time
+    type: number
+    required: false
+    default: 300
+    label:
+      en_US: Cache Time (seconds)
+      ru_RU: Время кеша (секунды)
+      bn_BD: ক্যাশ সময় (সেকেন্ড)
+      zh_Hans: 缓存时间（秒）
+      ja_JP: キャッシュ時間（秒）
+    human_description:
+      en_US: Maximum time to cache results
+      ru_RU: Максимальное время кеширования результатов
+      bn_BD: ফলাফল ক্যাশ করার সর্বাধিক সময়
+      zh_Hans: 缓存结果的最大时间
+      ja_JP: 結果をキャッシュする最大時間
+    form: form
+
+  - name: is_personal
+    type: boolean
+    required: false
+    default: false
+    label:
+      en_US: Personal Results
+      ru_RU: Персональные результаты
+      bn_BD: ব্যক্তিগত ফলাফল
+      zh_Hans: 个人结果
+      ja_JP: 個人的な結果
+    human_description:
+      en_US: Results may be cached on server side only for user
+      ru_RU: Результаты могут быть кешированы на сервере только для пользователя
+      bn_BD: ফলাফল শুধুমাত্র ব্যবহারকারীর জন্য সার্ভার সাইডে ক্যাশ করা যেতে পারে
+      zh_Hans: 结果可能仅为用户缓存在服务器端
+      ja_JP: 結果はユーザーのみサーバー側にキャッシュされる可能性があります
+    form: form
+
+  - name: next_offset
+    type: string
+    required: false
+    label:
+      en_US: Next Offset
+      ru_RU: Следующее смещение
+      bn_BD: পরবর্তী অফসেট
+      zh_Hans: 下一个偏移
+      ja_JP: 次のオフセット
+    human_description:
+      en_US: Offset for pagination
+      ru_RU: Смещение для пагинации
+      bn_BD: পৃষ্ঠা বিন্যাসের জন্য অফসেট
+      zh_Hans: 分页偏移量
+      ja_JP: ページネーションのオフセット
+    form: form
+
+extra:
+  python:
+    source: tools/answer_inline_query.py
