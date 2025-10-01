@@ -1,0 +1,52 @@
+identity:
+  name: revoke_chat_invite_link
+  author: shamspias
+  label:
+    en_US: Revoke Chat Invite Link
+    ru_RU: Отозвать ссылку-приглашение
+    bn_BD: চ্যাট আমন্ত্রণ লিঙ্ক প্রত্যাহার করুন
+    zh_Hans: 撤销聊天邀请链接
+    ja_JP: チャット招待リンクを取り消し
+description:
+  human:
+    en_US: Revoke an invite link created by the bot
+    ru_RU: Отозвать ссылку-приглашение, созданную ботом
+    bn_BD: বট দ্বারা তৈরি আমন্ত্রণ লিঙ্ক প্রত্যাহার করুন
+    zh_Hans: 撤销由机器人创建的邀请链接
+    ja_JP: ボットが作成した招待リンクを取り消し
+  llm: Revoke invite link making it invalid
+
+parameters:
+  - name: chat_id
+    type: string
+    required: true
+    label:
+      en_US: Chat ID
+      ru_RU: ID чата
+      bn_BD: চ্যাট আইডি
+      zh_Hans: 聊天 ID
+      ja_JP: チャット ID
+    llm_description: Chat ID
+    form: llm
+
+  - name: invite_link
+    type: string
+    required: true
+    label:
+      en_US: Invite Link
+      ru_RU: Ссылка-приглашение
+      bn_BD: আমন্ত্রণ লিঙ্ক
+      zh_Hans: 邀请链接
+      ja_JP: 招待リンク
+    human_description:
+      en_US: The invite link to revoke
+      ru_RU: Ссылка-приглашение для отзыва
+      bn_BD: প্রত্যাহার করার জন্য আমন্ত্রণ লিঙ্ক
+      zh_Hans: 要撤销的邀请链接
+      ja_JP: 取り消す招待リンク
+    llm_description: Invite link URL to revoke
+    form: llm
+
+extra:
+  python:
+    source: tools/revoke_chat_invite_link.py
