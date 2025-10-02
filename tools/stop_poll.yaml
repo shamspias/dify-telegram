@@ -15,38 +15,37 @@ description:
     zh_Hans: 停止由机器人发送的投票
     ja_JP: ボットが送信した投票を停止
   llm: Stop a poll and receive final results
-
 parameters:
-  - name: chat_id
-    type: string
-    required: true
-    label:
-      en_US: Chat ID
-      ru_RU: ID чата
-      bn_BD: চ্যাট আইডি
-      zh_Hans: 聊天 ID
-      ja_JP: チャット ID
-    llm_description: Chat ID
-    form: llm
-
-  - name: message_id
-    type: number
-    required: true
-    label:
-      en_US: Message ID
-      ru_RU: ID сообщения
-      bn_BD: বার্তা আইডি
-      zh_Hans: 消息 ID
-      ja_JP: メッセージ ID
-    human_description:
-      en_US: Identifier of the poll message
-      ru_RU: Идентификатор сообщения с опросом
-      bn_BD: পোল বার্তার শনাক্তকারী
-      zh_Hans: 投票消息的标识符
-      ja_JP: 投票メッセージの識別子
-    llm_description: Message ID of the poll
-    form: llm
-
+- name: chat_id
+  type: string
+  required: true
+  label:
+    en_US: Chat ID
+    ru_RU: ID чата
+    bn_BD: চ্যাট আইডি
+    zh_Hans: 聊天 ID
+    ja_JP: チャット ID
+  llm_description: Chat ID
+  form: llm
+  human_description:
+    en_US: Target chat identifier
+- name: message_id
+  type: number
+  required: true
+  label:
+    en_US: Message ID
+    ru_RU: ID сообщения
+    bn_BD: বার্তা আইডি
+    zh_Hans: 消息 ID
+    ja_JP: メッセージ ID
+  human_description:
+    en_US: Identifier of the poll message
+    ru_RU: Идентификатор сообщения с опросом
+    bn_BD: পোল বার্তার শনাক্তকারী
+    zh_Hans: 投票消息的标识符
+    ja_JP: 投票メッセージの識別子
+  llm_description: Message ID of the poll
+  form: llm
 extra:
   python:
     source: tools/stop_poll.py
