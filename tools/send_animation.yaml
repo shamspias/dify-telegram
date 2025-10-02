@@ -15,122 +15,131 @@ description:
     zh_Hans: 发送动画文件（GIF 或 H.264/MPEG-4 AVC 无声视频）
     ja_JP: アニメーションファイルを送信（GIF または H.264/MPEG-4 AVC 無音ビデオ）
   llm: Send GIF or video animations without sound
-
 parameters:
-  - name: chat_id
-    type: string
-    required: true
+- name: chat_id
+  type: string
+  required: true
+  label:
+    en_US: Chat ID
+    ru_RU: ID чата
+    bn_BD: চ্যাট আইডি
+    zh_Hans: 聊天 ID
+    ja_JP: チャット ID
+  human_description:
+    en_US: Unique identifier for the target chat
+    ru_RU: Уникальный идентификатор целевого чата
+    bn_BD: লক্ষ্য চ্যাটের অনন্য শনাক্তকারী
+    zh_Hans: 目标聊天的唯一标识符
+    ja_JP: 対象チャットの一意の識別子
+  llm_description: Target chat ID
+  form: llm
+- name: animation
+  type: string
+  required: true
+  label:
+    en_US: Animation
+    ru_RU: Анимация
+    bn_BD: অ্যানিমেশন
+    zh_Hans: 动画
+    ja_JP: アニメーション
+  human_description:
+    en_US: Animation to send (file_id, URL, or file path)
+    ru_RU: Анимация для отправки (file_id, URL или путь к файлу)
+    bn_BD: পাঠানোর জন্য অ্যানিমেশন (file_id, URL, অথবা ফাইল পাথ)
+    zh_Hans: 要发送的动画（file_id、URL 或文件路径）
+    ja_JP: 送信するアニメーション（file_id、URL、またはファイルパス）
+  llm_description: Animation identifier, URL, or file path
+  form: llm
+- name: caption
+  type: string
+  required: false
+  label:
+    en_US: Caption
+    ru_RU: Подпись
+    bn_BD: ক্যাপশন
+    zh_Hans: 标题
+    ja_JP: キャプション
+  form: llm
+  human_description:
+    en_US: Caption text
+  llm_description: caption
+- name: duration
+  type: number
+  required: false
+  label:
+    en_US: Duration (seconds)
+    ru_RU: Длительность (секунды)
+    bn_BD: সময়কাল (সেকেন্ড)
+    zh_Hans: 时长（秒）
+    ja_JP: 長さ（秒）
+  form: form
+  human_description:
+    en_US: Duration in seconds
+  llm_description: duration
+- name: width
+  type: number
+  required: false
+  label:
+    en_US: Width
+    ru_RU: Ширина
+    bn_BD: প্রস্থ
+    zh_Hans: 宽度
+    ja_JP: 幅
+  form: form
+  human_description:
+    en_US: Width in pixels
+  llm_description: width
+- name: height
+  type: number
+  required: false
+  label:
+    en_US: Height
+    ru_RU: Высота
+    bn_BD: উচ্চতা
+    zh_Hans: 高度
+    ja_JP: 高さ
+  form: form
+  human_description:
+    en_US: Height in pixels
+  llm_description: height
+- name: parse_mode
+  type: select
+  required: false
+  default: ''
+  options:
+  - value: ''
     label:
-      en_US: Chat ID
-      ru_RU: ID чата
-      bn_BD: চ্যাট আইডি
-      zh_Hans: 聊天 ID
-      ja_JP: チャット ID
-    human_description:
-      en_US: Unique identifier for the target chat
-      ru_RU: Уникальный идентификатор целевого чата
-      bn_BD: লক্ষ্য চ্যাটের অনন্য শনাক্তকারী
-      zh_Hans: 目标聊天的唯一标识符
-      ja_JP: 対象チャットの一意の識別子
-    llm_description: Target chat ID
-    form: llm
-
-  - name: animation
-    type: string
-    required: true
+      en_US: None
+  - value: Markdown
     label:
-      en_US: Animation
-      ru_RU: Анимация
-      bn_BD: অ্যানিমেশন
-      zh_Hans: 动画
-      ja_JP: アニメーション
-    human_description:
-      en_US: Animation to send (file_id, URL, or file path)
-      ru_RU: Анимация для отправки (file_id, URL или путь к файлу)
-      bn_BD: পাঠানোর জন্য অ্যানিমেশন (file_id, URL, অথবা ফাইল পাথ)
-      zh_Hans: 要发送的动画（file_id、URL 或文件路径）
-      ja_JP: 送信するアニメーション（file_id、URL、またはファイルパス）
-    llm_description: Animation identifier, URL, or file path
-    form: llm
-
-  - name: caption
-    type: string
-    required: false
+      en_US: Markdown
+  - value: HTML
     label:
-      en_US: Caption
-      ru_RU: Подпись
-      bn_BD: ক্যাপশন
-      zh_Hans: 标题
-      ja_JP: キャプション
-    form: llm
-
-  - name: duration
-    type: number
-    required: false
-    label:
-      en_US: Duration (seconds)
-      ru_RU: Длительность (секунды)
-      bn_BD: সময়কাল (সেকেন্ড)
-      zh_Hans: 时长（秒）
-      ja_JP: 長さ（秒）
-    form: form
-
-  - name: width
-    type: number
-    required: false
-    label:
-      en_US: Width
-      ru_RU: Ширина
-      bn_BD: প্রস্থ
-      zh_Hans: 宽度
-      ja_JP: 幅
-    form: form
-
-  - name: height
-    type: number
-    required: false
-    label:
-      en_US: Height
-      ru_RU: Высота
-      bn_BD: উচ্চতা
-      zh_Hans: 高度
-      ja_JP: 高さ
-    form: form
-
-  - name: parse_mode
-    type: select
-    required: false
-    default: ""
-    options:
-      - value: ""
-        label:
-          en_US: None
-      - value: "Markdown"
-        label:
-          en_US: Markdown
-      - value: "HTML"
-        label:
-          en_US: HTML
-    label:
-      en_US: Parse Mode
-      ru_RU: Режим разбора
-      bn_BD: পার্স মোড
-      zh_Hans: 解析模式
-      ja_JP: パースモード
-    form: form
-
-  - name: disable_notification
-    type: boolean
-    required: false
-    default: false
-    label:
-      en_US: Silent Mode
-      ru_RU: Тихий режим
-      bn_BD: নীরব মোড
-      zh_Hans: 静音模式
-      ja_JP: サイレントモード
-    form: form
-
+      en_US: HTML
+  label:
+    en_US: Parse Mode
+    ru_RU: Режим разбора
+    bn_BD: পার্স মোড
+    zh_Hans: 解析模式
+    ja_JP: パースモード
+  form: form
+  human_description:
+    en_US: Format for text parsing
+  llm_description: parse mode
+- name: disable_notification
+  type: boolean
+  required: false
+  default: false
+  label:
+    en_US: Silent Mode
+    ru_RU: Тихий режим
+    bn_BD: নীরব মোড
+    zh_Hans: 静音模式
+    ja_JP: サイレントモード
+  form: form
+  human_description:
+    en_US: Send message silently
+  llm_description: disable notification
 extra:
   python:
     source: tools/send_animation.py
