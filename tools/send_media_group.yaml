@@ -15,50 +15,51 @@ description:
     zh_Hans: 将一组照片或视频作为相册发送
     ja_JP: 写真またはビデオのグループをアルバムとして送信
   llm: Send 2-10 photos or videos as an album
-
 parameters:
-  - name: chat_id
-    type: string
-    required: true
-    label:
-      en_US: Chat ID
-      ru_RU: ID чата
-      bn_BD: চ্যাট আইডি
-      zh_Hans: 聊天 ID
-      ja_JP: チャット ID
-    llm_description: Target chat ID
-    form: llm
-
-  - name: media
-    type: string
-    required: true
-    label:
-      en_US: Media (JSON)
-      ru_RU: Медиа (JSON)
-      bn_BD: মিডিয়া (JSON)
-      zh_Hans: 媒体 (JSON)
-      ja_JP: メディア (JSON)
-    human_description:
-      en_US: JSON array of InputMedia objects (2-10 items)
-      ru_RU: JSON массив объектов InputMedia (2-10 элементов)
-      bn_BD: InputMedia অবজেক্টের JSON অ্যারে (২-১০ আইটেম)
-      zh_Hans: InputMedia 对象的 JSON 数组（2-10 项）
-      ja_JP: InputMedia オブジェクトの JSON 配列（2-10 項目）
-    llm_description: Array of media items with type, media URL, and optional caption
-    form: llm
-
-  - name: disable_notification
-    type: boolean
-    required: false
-    default: false
-    label:
-      en_US: Silent Mode
-      ru_RU: Тихий режим
-      bn_BD: নীরব মোড
-      zh_Hans: 静音模式
-      ja_JP: サイレントモード
-    form: form
-
+- name: chat_id
+  type: string
+  required: true
+  label:
+    en_US: Chat ID
+    ru_RU: ID чата
+    bn_BD: চ্যাট আইডি
+    zh_Hans: 聊天 ID
+    ja_JP: チャット ID
+  llm_description: Target chat ID
+  form: llm
+  human_description:
+    en_US: Target chat identifier
+- name: media
+  type: string
+  required: true
+  label:
+    en_US: Media (JSON)
+    ru_RU: Медиа (JSON)
+    bn_BD: মিডিয়া (JSON)
+    zh_Hans: 媒体 (JSON)
+    ja_JP: メディア (JSON)
+  human_description:
+    en_US: JSON array of InputMedia objects (2-10 items)
+    ru_RU: JSON массив объектов InputMedia (2-10 элементов)
+    bn_BD: InputMedia অবজেক্টের JSON অ্যারে (২-১০ আইটেম)
+    zh_Hans: InputMedia 对象的 JSON 数组（2-10 项）
+    ja_JP: InputMedia オブジェクトの JSON 配列（2-10 項目）
+  llm_description: Array of media items with type, media URL, and optional caption
+  form: llm
+- name: disable_notification
+  type: boolean
+  required: false
+  default: false
+  label:
+    en_US: Silent Mode
+    ru_RU: Тихий режим
+    bn_BD: নীরব মোড
+    zh_Hans: 静音模式
+    ja_JP: サイレントモード
+  form: form
+  human_description:
+    en_US: Send message silently
+  llm_description: disable notification
 extra:
   python:
     source: tools/send_media_group.py
