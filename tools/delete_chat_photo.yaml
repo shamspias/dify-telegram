@@ -15,20 +15,20 @@ description:
     zh_Hans: 删除聊天照片
     ja_JP: チャット写真を削除
   llm: Remove current chat photo (bot must be administrator with can_change_info permission)
-
 parameters:
-  - name: chat_id
-    type: string
-    required: true
-    label:
-      en_US: Chat ID
-      ru_RU: ID чата
-      bn_BD: চ্যাট আইডি
-      zh_Hans: 聊天 ID
-      ja_JP: チャット ID
-    llm_description: Chat ID
-    form: llm
-
+- name: chat_id
+  type: string
+  required: true
+  label:
+    en_US: Chat ID
+    ru_RU: ID чата
+    bn_BD: চ্যাট আইডি
+    zh_Hans: 聊天 ID
+    ja_JP: チャット ID
+  llm_description: Chat ID
+  form: llm
+  human_description:
+    en_US: Target chat identifier
 extra:
   python:
     source: tools/delete_chat_photo.py
