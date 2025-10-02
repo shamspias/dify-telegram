@@ -15,20 +15,20 @@ description:
     zh_Hans: 获取聊天中的成员数量
     ja_JP: チャット内のメンバー数を取得
   llm: Retrieve total member count for a group, supergroup, or channel
-
 parameters:
-  - name: chat_id
-    type: string
-    required: true
-    label:
-      en_US: Chat ID
-      ru_RU: ID чата
-      bn_BD: চ্যাট আইডি
-      zh_Hans: 聊天 ID
-      ja_JP: チャット ID
-    llm_description: Chat ID to get member count
-    form: llm
-
+- name: chat_id
+  type: string
+  required: true
+  label:
+    en_US: Chat ID
+    ru_RU: ID чата
+    bn_BD: চ্যাট আইডি
+    zh_Hans: 聊天 ID
+    ja_JP: チャット ID
+  llm_description: Chat ID to get member count
+  form: llm
+  human_description:
+    en_US: Target chat identifier
 extra:
   python:
     source: tools/get_chat_members_count.py
