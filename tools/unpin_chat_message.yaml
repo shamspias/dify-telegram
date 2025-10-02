@@ -15,38 +15,37 @@ description:
     zh_Hans: 从置顶消息列表中移除消息
     ja_JP: ピン留めされたメッセージのリストからメッセージを削除
   llm: Unpin a specific message or most recent pinned message
-
 parameters:
-  - name: chat_id
-    type: string
-    required: true
-    label:
-      en_US: Chat ID
-      ru_RU: ID чата
-      bn_BD: চ্যাট আইডি
-      zh_Hans: 聊天 ID
-      ja_JP: チャット ID
-    llm_description: Chat ID
-    form: llm
-
-  - name: message_id
-    type: number
-    required: false
-    label:
-      en_US: Message ID
-      ru_RU: ID сообщения
-      bn_BD: বার্তা আইডি
-      zh_Hans: 消息 ID
-      ja_JP: メッセージ ID
-    human_description:
-      en_US: Message ID to unpin (leave empty to unpin most recent)
-      ru_RU: ID сообщения для открепления (оставьте пустым для открепления последнего)
-      bn_BD: আনপিন করার বার্তার আইডি (সর্বশেষটি আনপিন করতে খালি রাখুন)
-      zh_Hans: 要取消置顶的消息 ID（留空以取消最近的置顶）
-      ja_JP: ピン留めを解除するメッセージ ID（空白のままで最新のものを解除）
-    llm_description: Message ID to unpin, or leave empty for most recent
-    form: form
-
+- name: chat_id
+  type: string
+  required: true
+  label:
+    en_US: Chat ID
+    ru_RU: ID чата
+    bn_BD: চ্যাট আইডি
+    zh_Hans: 聊天 ID
+    ja_JP: チャット ID
+  llm_description: Chat ID
+  form: llm
+  human_description:
+    en_US: Target chat identifier
+- name: message_id
+  type: number
+  required: false
+  label:
+    en_US: Message ID
+    ru_RU: ID сообщения
+    bn_BD: বার্তা আইডি
+    zh_Hans: 消息 ID
+    ja_JP: メッセージ ID
+  human_description:
+    en_US: Message ID to unpin (leave empty to unpin most recent)
+    ru_RU: ID сообщения для открепления (оставьте пустым для открепления последнего)
+    bn_BD: আনপিন করার বার্তার আইডি (সর্বশেষটি আনপিন করতে খালি রাখুন)
+    zh_Hans: 要取消置顶的消息 ID（留空以取消最近的置顶）
+    ja_JP: ピン留めを解除するメッセージ ID（空白のままで最新のものを解除）
+  llm_description: Message ID to unpin, or leave empty for most recent
+  form: form
 extra:
   python:
     source: tools/unpin_chat_message.py
