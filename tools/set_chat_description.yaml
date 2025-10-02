@@ -15,38 +15,37 @@ description:
     zh_Hans: 更改群组、超级群组或频道的描述
     ja_JP: グループ、スーパーグループ、またはチャンネルの説明を変更
   llm: Update chat description (bot must be administrator with can_change_info permission)
-
 parameters:
-  - name: chat_id
-    type: string
-    required: true
-    label:
-      en_US: Chat ID
-      ru_RU: ID чата
-      bn_BD: চ্যাট আইডি
-      zh_Hans: 聊天 ID
-      ja_JP: チャット ID
-    llm_description: Chat ID
-    form: llm
-
-  - name: description
-    type: string
-    required: false
-    label:
-      en_US: Description
-      ru_RU: Описание
-      bn_BD: বর্ণনা
-      zh_Hans: 描述
-      ja_JP: 説明
-    human_description:
-      en_US: New chat description (0-255 characters)
-      ru_RU: Новое описание чата (0-255 символов)
-      bn_BD: নতুন চ্যাট বর্ণনা (০-২৫৫ অক্ষর)
-      zh_Hans: 新的聊天描述（0-255 个字符）
-      ja_JP: 新しいチャット説明（0-255 文字）
-    llm_description: New description text
-    form: llm
-
+- name: chat_id
+  type: string
+  required: true
+  label:
+    en_US: Chat ID
+    ru_RU: ID чата
+    bn_BD: চ্যাট আইডি
+    zh_Hans: 聊天 ID
+    ja_JP: チャット ID
+  llm_description: Chat ID
+  form: llm
+  human_description:
+    en_US: Target chat identifier
+- name: description
+  type: string
+  required: false
+  label:
+    en_US: Description
+    ru_RU: Описание
+    bn_BD: বর্ণনা
+    zh_Hans: 描述
+    ja_JP: 説明
+  human_description:
+    en_US: New chat description (0-255 characters)
+    ru_RU: Новое описание чата (0-255 символов)
+    bn_BD: নতুন চ্যাট বর্ণনা (০-২৫৫ অক্ষর)
+    zh_Hans: 新的聊天描述（0-255 个字符）
+    ja_JP: 新しいチャット説明（0-255 文字）
+  llm_description: New description text
+  form: llm
 extra:
   python:
     source: tools/set_chat_description.py
